@@ -1,0 +1,18 @@
+/* Точка входа для всех стилей библиотеки */
+
+@import "./styles/tokens.css";
+@import "./styles/themes.css";
+@import "./styles/reset.css";
+@import "./styles/base.css";
+
+@import "../docs/components/button/button.css";
+@import "../docscomponents/checkbox/checkbox.css";
+@import "../docs/components/input/input.css";
+@import "../docs/components/select/select.css";
+@import "../docs/components/radio/radio.css";
+@import "../docs/components/modal/modal.css";
+@import "../docs/components/tooltip/tooltip.css";
+@import "../docs/components/toast/toast.css";
+@import "../docs/components/card/card.css";
+@import "../docs/components/tabs/tabs.css";
+@import "../docs/components/accordion/accordion.css";

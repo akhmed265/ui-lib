@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Card</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовая</h2>
+      <p class="docs-section__desc">
+        Просто контейнер с рамкой, тенью и padding. Если внутри нет header/body/footer —
+        padding даётся самой карточке.
+      </p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); align-items: start;">
+        <div class="ui-card">
+          Текст прямо в карточке. Padding применяется к самой карточке.
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card__header">
+            <h3 class="ui-card__title">Заголовок</h3>
+            <p class="ui-card__subtitle">Подзаголовок с пояснением</p>
+          </div>
+          <div class="ui-card__body">
+            Основной контент карточки. Здесь может быть текст, список, форма или что угодно.
+          </div>
+          <div class="ui-card__footer">
+            <button class="ui-btn ui-btn--ghost">Отмена</button>
+            <button class="ui-btn ui-btn--primary">OK</button>
+          </div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card"&gt;Просто текст&lt;/div&gt;
+
+&lt;div class="ui-card"&gt;
+  &lt;div class="ui-card__header"&gt;
+    &lt;h3 class="ui-card__title"&gt;Заголовок&lt;/h3&gt;
+    &lt;p class="ui-card__subtitle"&gt;Подзаголовок&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-card__body"&gt;Контент&lt;/div&gt;
+  &lt;div class="ui-card__footer"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">С картинкой</h2>
+      <p class="docs-section__desc">
+        <code>.ui-card__media</code> — картинка во всю ширину, без паддингов.
+      </p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--hoverable">
+          <img class="ui-card__media" alt="" style="height: 160px; background: linear-gradient(135deg, #2563eb, #60a5fa);">
+          <div class="ui-card__body">
+            <h3 class="ui-card__title">Красивая карточка</h3>
+            <p class="ui-card__subtitle">С картинкой сверху и hover-эффектом</p>
+          </div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card ui-card--hoverable"&gt;
+  &lt;img class="ui-card__media" src="cover.jpg" alt=""&gt;
+  &lt;div class="ui-card__body"&gt;
+    &lt;h3 class="ui-card__title"&gt;Заголовок&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Hoverable</h2>
+      <p class="docs-section__desc">
+        <code>--hoverable</code> — карточка поднимается, тень усиливается. Для кликабельных карточек.
+      </p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--hoverable">
+          <div class="ui-card__body">Наведи на меня</div>
+        </div>
+        <a href="#" class="ui-card ui-card--hoverable" style="text-decoration: none; color: inherit;">
+          <div class="ui-card__body">Я ссылка</div>
+        </a>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card ui-card--hoverable"&gt;...&lt;/div&gt;
+&lt;a href="#" class="ui-card ui-card--hoverable"&gt;...&lt;/a&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Flat</h2>
+      <p class="docs-section__desc">Без тени — только рамка.</p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--flat">
+          <div class="ui-card__body">Плоская карточка</div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card ui-card--flat"&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--sm"><div class="ui-card__body">Small</div></div>
+        <div class="ui-card"><div class="ui-card__body">Medium (по умолчанию)</div></div>
+        <div class="ui-card ui-card--lg"><div class="ui-card__body">Large</div></div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card ui-card--sm"&gt;...&lt;/div&gt;
+&lt;div class="ui-card"&gt;...&lt;/div&gt;
+&lt;div class="ui-card ui-card--lg"&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Compact</h2>
+      <p class="docs-section__desc">Меньше отступов — для плотных списков.</p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--compact">
+          <div class="ui-card__body">Компактная карточка</div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card ui-card--compact"&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Horizontal</h2>
+      <p class="docs-section__desc">
+        Медиа слева, контент справа. На узких экранах автоматически превращается в вертикальную.
+      </p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--horizontal">
+          <img class="ui-card__media" alt="" style="background: linear-gradient(135deg, #16a34a, #60a5fa);">
+          <div class="ui-card__body">
+            <h3 class="ui-card__title">Горизонтальная</h3>
+            <p class="ui-card__subtitle">Картинка слева, контент справа</p>
+          </div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card ui-card--horizontal"&gt;
+  &lt;img class="ui-card__media" src="..." alt=""&gt;
+  &lt;div class="ui-card__body"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Accent</h2>
+      <p class="docs-section__desc">Цветная полоса сверху. 4 цвета.</p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--accent ui-card--accent-primary">
+          <div class="ui-card__body">Primary</div>
+        </div>
+        <div class="ui-card ui-card--accent ui-card--accent-success">
+          <div class="ui-card__body">Success</div>
+        </div>
+        <div class="ui-card ui-card--accent ui-card--accent-warning">
+          <div class="ui-card__body">Warning</div>
+        </div>
+        <div class="ui-card ui-card--accent ui-card--accent-danger">
+          <div class="ui-card__body">Danger</div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card ui-card--accent ui-card--accent-success"&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Комбинирование</h2>
+      <p class="docs-section__desc">Все модификаторы работают вместе.</p>
+      <div class="docs-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); align-items: start;">
+        <div class="ui-card ui-card--hoverable ui-card--accent ui-card--accent-success">
+          <div class="ui-card__header">
+            <h3 class="ui-card__title">Готово</h3>
+            <p class="ui-card__subtitle">Hoverable + accent-success</p>
+          </div>
+          <div class="ui-card__body">
+            Комбинация нескольких модификаторов.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js" defer></script>
+</body>
+</html>

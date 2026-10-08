@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Tabs</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовые (underline)</h2>
+      <p class="docs-section__desc">
+        Активный таб — <code>aria-selected="true"</code>. JS сам проставляет
+        ARIA-связки, клавиатурную навигацию и событие <code>ui-tabs:change</code>.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-tabs" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist" aria-label="Разделы">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">Первый</button>
+            <button class="ui-tabs__tab" role="tab">Второй</button>
+            <button class="ui-tabs__tab" role="tab">Третий</button>
+          </div>
+          <div class="ui-tabs__panel">Содержимое первой вкладки</div>
+          <div class="ui-tabs__panel">Содержимое второй вкладки</div>
+          <div class="ui-tabs__panel">Содержимое третьей вкладки</div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-tabs" data-ui-tabs&gt;
+  &lt;div class="ui-tabs__list" role="tablist" aria-label="Разделы"&gt;
+    &lt;button class="ui-tabs__tab" role="tab" aria-selected="true"&gt;Первый&lt;/button&gt;
+    &lt;button class="ui-tabs__tab" role="tab"&gt;Второй&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-tabs__panel"&gt;Контент 1&lt;/div&gt;
+  &lt;div class="ui-tabs__panel"&gt;Контент 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Pills</h2>
+      <p class="docs-section__desc">Модификатор <code>--pills</code>.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-tabs ui-tabs--pills" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist" aria-label="Фильтры">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">Все</button>
+            <button class="ui-tabs__tab" role="tab">Активные</button>
+            <button class="ui-tabs__tab" role="tab">Архив</button>
+          </div>
+          <div class="ui-tabs__panel">Все элементы</div>
+          <div class="ui-tabs__panel">Только активные</div>
+          <div class="ui-tabs__panel">Архив</div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-tabs ui-tabs--pills" data-ui-tabs&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 24px;">
+        <div class="ui-tabs ui-tabs--sm" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">Small</button>
+            <button class="ui-tabs__tab" role="tab">Второй</button>
+          </div>
+          <div class="ui-tabs__panel">Small panel</div>
+          <div class="ui-tabs__panel">Panel 2</div>
+        </div>
+
+        <div class="ui-tabs" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">Medium</button>
+            <button class="ui-tabs__tab" role="tab">Второй</button>
+          </div>
+          <div class="ui-tabs__panel">Medium panel</div>
+          <div class="ui-tabs__panel">Panel 2</div>
+        </div>
+
+        <div class="ui-tabs ui-tabs--lg" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">Large</button>
+            <button class="ui-tabs__tab" role="tab">Второй</button>
+          </div>
+          <div class="ui-tabs__panel">Large panel</div>
+          <div class="ui-tabs__panel">Panel 2</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Disabled tab</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-tabs" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">Активный</button>
+            <button class="ui-tabs__tab" role="tab" disabled>Недоступный</button>
+            <button class="ui-tabs__tab" role="tab">Третий</button>
+          </div>
+          <div class="ui-tabs__panel">Panel 1</div>
+          <div class="ui-tabs__panel">Panel 2</div>
+          <div class="ui-tabs__panel">Panel 3</div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;button class="ui-tabs__tab" role="tab" disabled&gt;Недоступный&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Scrollable</h2>
+      <p class="docs-section__desc">
+        Модификатор <code>--scrollable</code>. Если табов много — горизонтальный скролл
+        с fade по краям.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <div class="ui-tabs ui-tabs--scrollable" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">Первый</button>
+            <button class="ui-tabs__tab" role="tab">Второй</button>
+            <button class="ui-tabs__tab" role="tab">Третий</button>
+            <button class="ui-tabs__tab" role="tab">Четвёртый</button>
+            <button class="ui-tabs__tab" role="tab">Пятый</button>
+            <button class="ui-tabs__tab" role="tab">Шестой</button>
+            <button class="ui-tabs__tab" role="tab">Седьмой</button>
+          </div>
+          <div class="ui-tabs__panel">Panel 1</div>
+          <div class="ui-tabs__panel">Panel 2</div>
+          <div class="ui-tabs__panel">Panel 3</div>
+          <div class="ui-tabs__panel">Panel 4</div>
+          <div class="ui-tabs__panel">Panel 5</div>
+          <div class="ui-tabs__panel">Panel 6</div>
+          <div class="ui-tabs__panel">Panel 7</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Событие</h2>
+      <p class="docs-section__desc">
+        При переключении генерируется <code>ui-tabs:change</code>.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-tabs" id="eventTabs" data-ui-tabs>
+          <div class="ui-tabs__list" role="tablist">
+            <button class="ui-tabs__tab" role="tab" aria-selected="true">A</button>
+            <button class="ui-tabs__tab" role="tab">B</button>
+            <button class="ui-tabs__tab" role="tab">C</button>
+          </div>
+          <div class="ui-tabs__panel">Панель A</div>
+          <div class="ui-tabs__panel">Панель B</div>
+          <div class="ui-tabs__panel">Панель C</div>
+        </div>
+        <p style="margin: 0; color: var(--ui-color-text-muted);">
+          Последнее событие: <code id="eventOut">—</code>
+        </p>
+      </div>
+
+<pre class="docs-code"><code>tabs.addEventListener("ui-tabs:change", (e) =&gt; {
+  console.log(e.detail.index, e.detail.panel);
+});</code></pre>
+    </section>
+
+  </main>
+</div>
+
+<script src="../components/tabs/tabs.js" defer></script>
+<script src="../assets/sidebar.js" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.getElementById("eventTabs");
+    const out = document.getElementById("eventOut");
+    if (tabs && out) {
+      tabs.addEventListener("ui-tabs:change", (e) => {
+        out.textContent = `index = ${e.detail.index}`;
+      });
+    }
+  });
+</script>
+</body>
+</html>

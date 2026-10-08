@@ -1,0 +1,192 @@
+/* ============================================================
+   Стили демо-сайта (не входят в библиотеку)
+   ============================================================ */
+
+   body {
+    margin: 0;
+    font-family: var(--ui-font);
+    color: var(--ui-color-text);
+    background: var(--ui-color-bg);
+  }
+  
+  /* ---------- Каркас ---------- */
+  
+  .docs-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+  }
+  
+  .docs-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: var(--ui-space-5) var(--ui-space-4);
+    border-right: 1px solid var(--ui-color-border);
+    background: var(--ui-color-bg-subtle);
+  }
+  
+  .docs-sidebar__logo {
+    display: block;
+    font-weight: 700;
+    font-size: var(--ui-text-lg);
+    color: var(--ui-color-text);
+    text-decoration: none;
+    margin-bottom: var(--ui-space-5);
+  }
+  
+  .docs-sidebar__section {
+    margin-bottom: var(--ui-space-4);
+  }
+  
+  .docs-sidebar__title {
+    font-size: var(--ui-text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ui-color-text-muted);
+    margin-bottom: var(--ui-space-2);
+  }
+  
+  .docs-sidebar__link {
+    display: block;
+    padding: var(--ui-space-2) var(--ui-space-3);
+    border-radius: var(--ui-radius-sm);
+    color: var(--ui-color-text);
+    text-decoration: none;
+    font-size: var(--ui-text-md);
+    transition: background-color var(--ui-transition), color var(--ui-transition);
+  }
+  
+  .docs-sidebar__link:hover {
+    background: var(--ui-color-bg-muted);
+  }
+  
+  .docs-sidebar__link--active {
+    background: var(--ui-color-primary);
+    color: #fff;
+  }
+  
+  .docs-main {
+    padding: var(--ui-space-6) var(--ui-space-5);
+    max-width: 960px;
+  }
+  
+  .docs-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--ui-space-5);
+    padding-bottom: var(--ui-space-4);
+    border-bottom: 1px solid var(--ui-color-border);
+  }
+  
+  .docs-header h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+  .docs-header__actions {
+    display: flex;
+    gap: var(--ui-space-2);
+  }
+  
+  /* ---------- Секции ---------- */
+  
+  .docs-section {
+    margin-bottom: var(--ui-space-6);
+  }
+  
+  .docs-section__title {
+    font-size: 20px;
+    margin: 0 0 var(--ui-space-3);
+  }
+  
+  .docs-section__desc {
+    color: var(--ui-color-text-muted);
+    font-size: var(--ui-text-md);
+    margin: 0 0 var(--ui-space-3);
+  }
+  
+  /* ---------- Песочница ---------- */
+  
+  .docs-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ui-space-3);
+    align-items: center;
+    padding: var(--ui-space-5);
+    border: 1px solid var(--ui-color-border);
+    border-radius: var(--ui-radius);
+    background: var(--ui-color-bg-subtle);
+    margin-bottom: var(--ui-space-3);
+  }
+  
+  /* ---------- Код ---------- */
+  
+  .docs-code {
+    position: relative;
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: var(--ui-radius);
+    padding: var(--ui-space-4);
+    font-family: var(--ui-font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: 0;
+  }
+  
+  .docs-code code {
+    font-family: inherit;
+  }
+  
+  /* ---------- Карточки на главной ---------- */
+  
+  .docs-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--ui-space-4);
+  }
+  
+  .docs-card {
+    display: block;
+    padding: var(--ui-space-5);
+    border: 1px solid var(--ui-color-border);
+    border-radius: var(--ui-radius);
+    background: var(--ui-color-bg-subtle);
+    color: var(--ui-color-text);
+    text-decoration: none;
+    transition: border-color var(--ui-transition), transform var(--ui-transition);
+  }
+  
+  .docs-card:hover {
+    border-color: var(--ui-color-primary);
+    transform: translateY(-2px);
+  }
+  
+  .docs-card__title {
+    font-size: var(--ui-text-lg);
+    font-weight: 600;
+    margin: 0 0 var(--ui-space-2);
+  }
+  
+  .docs-card__desc {
+    font-size: var(--ui-text-sm);
+    color: var(--ui-color-text-muted);
+    margin: 0;
+  }
+  
+  /* ---------- Адаптив ---------- */
+  
+  @media (max-width: 720px) {
+    .docs-layout {
+      grid-template-columns: 1fr;
+    }
+    .docs-sidebar {
+      position: static;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--ui-color-border);
+    }
+  }

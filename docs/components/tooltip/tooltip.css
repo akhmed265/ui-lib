@@ -1,0 +1,99 @@
+/* ============================================================
+   Tooltip
+   Создаётся JS-ом в конце body, один на всё приложение
+   Позиционируется абсолютно (position: fixed)
+   ============================================================ */
+
+   .ui-tooltip {
+    position: fixed;
+    z-index: 2000;
+    max-width: 260px;
+    padding: var(--ui-space-2) var(--ui-space-3);
+    font-family: var(--ui-font);
+    font-size: var(--ui-text-sm);
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--ui-color-text);
+    background: var(--ui-color-bg);
+    border: 1px solid var(--ui-color-border);
+    border-radius: var(--ui-radius);
+    box-shadow: var(--ui-shadow);
+    pointer-events: none;
+  
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity 150ms ease,
+      transform 150ms ease;
+  }
+  
+  .ui-tooltip--open {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Скрыт по умолчанию, чтобы не ловил фокус и не читался скринридером */
+  .ui-tooltip[hidden] {
+    display: none;
+  }
+  
+  /* ---------- Стрелка ---------- */
+  
+  .ui-tooltip__arrow {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--ui-color-bg);
+    border: 1px solid var(--ui-color-border);
+    transform: rotate(45deg);
+  }
+  
+  /* Стрелка сверху (tooltip снизу) */
+  .ui-tooltip[data-placement="bottom"] .ui-tooltip__arrow {
+    top: -5px;
+    left: 50%;
+    margin-left: -4px;
+    border-right: none;
+    border-bottom: none;
+  }
+  
+  /* Стрелка снизу (tooltip сверху) */
+  .ui-tooltip[data-placement="top"] .ui-tooltip__arrow {
+    bottom: -5px;
+    left: 50%;
+    margin-left: -4px;
+    border-left: none;
+    border-top: none;
+  }
+  
+  /* Стрелка справа (tooltip слева) */
+  .ui-tooltip[data-placement="left"] .ui-tooltip__arrow {
+    right: -5px;
+    top: 50%;
+    margin-top: -4px;
+    border-left: none;
+    border-bottom: none;
+  }
+  
+  /* Стрелка слева (tooltip справа) */
+  .ui-tooltip[data-placement="right"] .ui-tooltip__arrow {
+    left: -5px;
+    top: 50%;
+    margin-top: -4px;
+    border-right: none;
+    border-top: none;
+  }
+  
+  /* ---------- Тёмная тема: инвертируем — светлый тултип ---------- */
+  
+  [data-theme="dark"] .ui-tooltip {
+    color: #0f172a;
+    background: #f1f5f9;
+    border-color: transparent;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
+  }
+  
+  [data-theme="dark"] .ui-tooltip__arrow {
+    background: #f1f5f9;
+    border-color: transparent;
+  }

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Accordion</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый (single)</h2>
+      <p class="docs-section__desc">
+        По умолчанию открыт максимум один раздел. Клик по другому — предыдущий закрывается.
+        Стрелка поворачивается, высота анимируется.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-accordion" data-ui-accordion>
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Что такое UI Lib?</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner">
+                <p>Минималистичная UI-библиотека на чистом HTML, CSS и JavaScript.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Как установить?</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner">
+                <p>Просто подключи <code>ui.css</code> и при необходимости <code>ui.js</code>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Есть ли зависимости?</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner">
+                <p>Нет. Только чистые HTML, CSS, JS.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-accordion" data-ui-accordion&gt;
+  &lt;div class="ui-accordion__item ui-accordion__item--open"&gt;
+    &lt;button class="ui-accordion__trigger" type="button"&gt;
+      &lt;span class="ui-accordion__title"&gt;Заголовок&lt;/span&gt;
+      &lt;span class="ui-accordion__arrow" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="ui-accordion__content"&gt;
+      &lt;div class="ui-accordion__content-inner"&gt;
+        Контент
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Multiple</h2>
+      <p class="docs-section__desc">
+        Модификатор <code>--multiple</code>. Можно открыть несколько разделов одновременно.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-accordion ui-accordion--multiple" data-ui-accordion>
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Первый раздел</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner">
+                <p>Можно открыть вместе со вторым.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Второй раздел</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner">
+                <p>И не закрывать первый.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Третий раздел</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner">
+                <p>Удобно для FAQ.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-accordion ui-accordion--multiple" data-ui-accordion&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 24px;">
+        <div class="ui-accordion ui-accordion--sm" data-ui-accordion>
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Small</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Мелкий размер.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-accordion" data-ui-accordion>
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Medium</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Стандартный.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-accordion ui-accordion--lg" data-ui-accordion>
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Large</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Крупный.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Separated</h2>
+      <p class="docs-section__desc">Каждый раздел — отдельная карточка с зазором.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-accordion ui-accordion--separated ui-accordion--multiple" data-ui-accordion>
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Первый блок</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Отдельная карточка.</p></div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Второй блок</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>С зазором между ними.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Bordered</h2>
+      <p class="docs-section__desc">Акцентная полоса слева у открытого раздела.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-accordion ui-accordion--bordered" data-ui-accordion>
+          <div class="ui-accordion__item ui-accordion__item--open">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Открытый</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>С акцентной полосой.</p></div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Закрытый</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Без полосы.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Disabled</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-accordion" data-ui-accordion>
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Работает</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Обычный раздел.</p></div>
+            </div>
+          </div>
+
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button" disabled>
+              <span class="ui-accordion__title">Недоступен</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Этот не откроется.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;button class="ui-accordion__trigger" type="button" disabled&gt;...&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Событие</h2>
+      <p class="docs-section__desc">
+        <code>ui-accordion:change</code> при открытии/закрытии.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <div class="ui-accordion" id="eventAccordion" data-ui-accordion>
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Раздел A</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Контент A</p></div>
+            </div>
+          </div>
+          <div class="ui-accordion__item">
+            <button class="ui-accordion__trigger" type="button">
+              <span class="ui-accordion__title">Раздел B</span>
+              <span class="ui-accordion__arrow" aria-hidden="true"></span>
+            </button>
+            <div class="ui-accordion__content">
+              <div class="ui-accordion__content-inner"><p>Контент B</p></div>
+            </div>
+          </div>
+        </div>
+        <p style="margin: 0; color: var(--ui-color-text-muted);">
+          Последнее событие: <code id="eventOut">—</code>
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../components/accordion/accordion.js" defer></script>
+<script src="../assets/sidebar.js" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const acc = document.getElementById("eventAccordion");
+    const out = document.getElementById("eventOut");
+    if (acc && out) {
+      acc.addEventListener("ui-accordion:change", (e) => {
+        out.textContent = `index = ${e.detail.index}, open = ${e.detail.open}`;
+      });
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чекбоксы — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Чекбоксы</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">Работает без JS. Нативный input визуально скрыт, но доступен с клавиатуры.</p>
+      <div class="docs-demo">
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input">
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Согласен с условиями</span>
+        </label>
+
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input" checked>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Уже выбрано</span>
+        </label>
+      </div>
+<pre class="docs-code"><code>&lt;label class="ui-checkbox"&gt;
+  &lt;input type="checkbox" class="ui-checkbox__input"&gt;
+  &lt;span class="ui-checkbox__box" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span class="ui-checkbox__label"&gt;Согласен с условиями&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo">
+        <label class="ui-checkbox ui-checkbox--sm">
+          <input type="checkbox" class="ui-checkbox__input" checked>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Small</span>
+        </label>
+
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input" checked>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Medium</span>
+        </label>
+
+        <label class="ui-checkbox ui-checkbox--lg">
+          <input type="checkbox" class="ui-checkbox__input" checked>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Large</span>
+        </label>
+      </div>
+<pre class="docs-code"><code>&lt;label class="ui-checkbox ui-checkbox--sm"&gt;...&lt;/label&gt;
+&lt;label class="ui-checkbox"&gt;...&lt;/label&gt;
+&lt;label class="ui-checkbox ui-checkbox--lg"&gt;...&lt;/label&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Состояния</h2>
+      <div class="docs-demo">
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input">
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Обычный</span>
+        </label>
+
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input" checked>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Выбран</span>
+        </label>
+
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input" disabled>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Disabled</span>
+        </label>
+
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input" checked disabled>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Checked + Disabled</span>
+        </label>
+      </div>
+<pre class="docs-code"><code>&lt;input type="checkbox" class="ui-checkbox__input" disabled&gt;
+&lt;input type="checkbox" class="ui-checkbox__input" checked disabled&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Indeterminate</h2>
+      <p class="docs-section__desc">Устанавливается через JS: <code>input.indeterminate = true</code>.</p>
+      <div class="docs-demo">
+        <label class="ui-checkbox">
+          <input type="checkbox" class="ui-checkbox__input" data-indeterminate>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Выбрано частично</span>
+        </label>
+      </div>
+<pre class="docs-code"><code>document.querySelector("input").indeterminate = true;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Switch</h2>
+      <div class="docs-demo">
+        <label class="ui-checkbox ui-checkbox--switch">
+          <input type="checkbox" class="ui-checkbox__input">
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Уведомления</span>
+        </label>
+
+        <label class="ui-checkbox ui-checkbox--switch">
+          <input type="checkbox" class="ui-checkbox__input" checked>
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Тёмная тема</span>
+        </label>
+      </div>
+<pre class="docs-code"><code>&lt;label class="ui-checkbox ui-checkbox--switch"&gt;
+  &lt;input type="checkbox" class="ui-checkbox__input"&gt;
+  &lt;span class="ui-checkbox__box" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;span class="ui-checkbox__label"&gt;Уведомления&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js"></script>
+</body>
+</html>

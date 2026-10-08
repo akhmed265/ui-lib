@@ -1,0 +1,41 @@
+/* Тёмная тема — включается атрибутом data-theme="dark" на <html> или <body> */
+[data-theme="dark"] {
+  --ui-color-bg: #0f172a;
+  --ui-color-bg-subtle: #1e293b;
+  --ui-color-bg-muted: #334155;
+  --ui-color-text: #f1f5f9;
+  --ui-color-text-muted: #94a3b8;
+  --ui-color-border: #334155;
+
+  --ui-color-primary: #3b82f6;
+  --ui-color-primary-hover: #60a5fa;
+  --ui-color-primary-active: #2563eb;
+
+  --ui-color-danger: #ef4444;
+  --ui-color-danger-hover: #f87171;
+
+  --ui-focus-ring: 0 0 0 3px rgb(59 130 246 / 0.45);
+  --ui-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
+}
+
+/* Авто-тема по системным настройкам (если пользователь не выбрал явно) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ui-color-bg: #0f172a;
+    --ui-color-bg-subtle: #1e293b;
+    --ui-color-bg-muted: #334155;
+    --ui-color-text: #f1f5f9;
+    --ui-color-text-muted: #94a3b8;
+    --ui-color-border: #334155;
+
+    --ui-color-primary: #3b82f6;
+    --ui-color-primary-hover: #60a5fa;
+    --ui-color-primary-active: #2563eb;
+
+    --ui-color-danger: #ef4444;
+    --ui-color-danger-hover: #f87171;
+
+    --ui-focus-ring: 0 0 0 3px rgb(59 130 246 / 0.45);
+    --ui-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
+  }
+}

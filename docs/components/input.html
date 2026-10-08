@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поля ввода — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Поля ввода</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <!-- Базовый input -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Input</h2>
+      <p class="docs-section__desc">Базовое текстовое поле. Обёртка <code>.ui-field</code> — опциональна.</p>
+
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <label class="ui-field">
+          <span class="ui-field__label">Email</span>
+          <input type="email" class="ui-input" placeholder="you@example.com">
+          <span class="ui-field__hint">Мы не передаём email третьим лицам</span>
+        </label>
+
+        <input type="text" class="ui-input" placeholder="Без label — просто инпут">
+      </div>
+
+<pre class="docs-code"><code>&lt;label class="ui-field"&gt;
+  &lt;span class="ui-field__label"&gt;Email&lt;/span&gt;
+  &lt;input type="email" class="ui-input" placeholder="you@example.com"&gt;
+  &lt;span class="ui-field__hint"&gt;Мы не передаём email третьим лицам&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;input type="text" class="ui-input" placeholder="Без label — просто инпут"&gt;</code></pre>
+    </section>
+
+    <!-- Размеры -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <input type="text" class="ui-input ui-input--sm" placeholder="Small">
+        <input type="text" class="ui-input" placeholder="Medium (по умолчанию)">
+        <input type="text" class="ui-input ui-input--lg" placeholder="Large">
+      </div>
+
+<pre class="docs-code"><code>&lt;input class="ui-input ui-input--sm"&gt;
+&lt;input class="ui-input"&gt;
+&lt;input class="ui-input ui-input--lg"&gt;</code></pre>
+    </section>
+
+    <!-- Состояния -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Состояния</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <input type="text" class="ui-input" placeholder="Обычное">
+        <input type="text" class="ui-input" value="Отключено" disabled>
+        <input type="text" class="ui-input" value="Только для чтения" readonly>
+        <input type="text" class="ui-input ui-input--error" value="Некорректное значение">
+        <input type="text" class="ui-input ui-input--success" value="Всё ок">
+      </div>
+
+<pre class="docs-code"><code>&lt;input class="ui-input" placeholder="Обычное"&gt;
+&lt;input class="ui-input" value="Отключено" disabled&gt;
+&lt;input class="ui-input" value="Только для чтения" readonly&gt;
+&lt;input class="ui-input ui-input--error" value="Некорректное значение"&gt;
+&lt;input class="ui-input ui-input--success" value="Всё ок"&gt;</code></pre>
+    </section>
+
+    <!-- Field с ошибкой -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Field с ошибкой</h2>
+      <p class="docs-section__desc">Модификатор <code>--error</code> на <code>.ui-field</code> и на <code>.ui-input</code> — показывает сообщение об ошибке вместо hint.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <label class="ui-field ui-field--error">
+          <span class="ui-field__label">Email</span>
+          <input type="email" class="ui-input ui-input--error" value="не-email" aria-invalid="true">
+          <span class="ui-field__hint">Мы не передаём email третьим лицам</span>
+          <span class="ui-field__error">Введите корректный email</span>
+        </label>
+      </div>
+
+<pre class="docs-code"><code>&lt;label class="ui-field ui-field--error"&gt;
+  &lt;span class="ui-field__label"&gt;Email&lt;/span&gt;
+  &lt;input type="email" class="ui-input ui-input--error" aria-invalid="true"&gt;
+  &lt;span class="ui-field__hint"&gt;Мы не передаём email третьим лицам&lt;/span&gt;
+  &lt;span class="ui-field__error"&gt;Введите корректный email&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+    </section>
+
+    <!-- Textarea -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Textarea</h2>
+      <p class="docs-section__desc">Многострочное поле. Класс <code>.ui-textarea</code>, тянется по вертикали.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <label class="ui-field">
+          <span class="ui-field__label">Сообщение</span>
+          <textarea class="ui-textarea" rows="4" placeholder="Рыба текст рыба текст..."></textarea>
+          <span class="ui-field__hint">Максимум 500 символов</span>
+        </label>
+
+        <textarea class="ui-textarea" rows="3" placeholder="Обычная textarea без label"></textarea>
+      </div>
+
+<pre class="docs-code"><code>&lt;label class="ui-field"&gt;
+  &lt;span class="ui-field__label"&gt;Сообщение&lt;/span&gt;
+  &lt;textarea class="ui-textarea" rows="4"&gt;&lt;/textarea&gt;
+  &lt;span class="ui-field__hint"&gt;Максимум 500 символов&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+    </section>
+
+    <!-- Input group -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Input Group</h2>
+      <p class="docs-section__desc">Префикс или суффикс внутри поля — например, для валюты, домена, иконки.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <div class="ui-input-group">
+          <span class="ui-input-group__prefix">@</span>
+          <input type="text" class="ui-input" placeholder="username">
+        </div>
+
+        <div class="ui-input-group">
+          <input type="text" class="ui-input" placeholder="example">
+          <span class="ui-input-group__suffix">.ru</span>
+        </div>
+
+        <div class="ui-input-group">
+          <span class="ui-input-group__prefix">₽</span>
+          <input type="text" class="ui-input" placeholder="0.00">
+          <span class="ui-input-group__suffix">RUB</span>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-input-group"&gt;
+  &lt;span class="ui-input-group__prefix"&gt;@&lt;/span&gt;
+  &lt;input type="text" class="ui-input" placeholder="username"&gt;
+&lt;/div&gt;
+
+&lt;div class="ui-input-group"&gt;
+  &lt;input type="text" class="ui-input" placeholder="example"&gt;
+  &lt;span class="ui-input-group__suffix"&gt;.ru&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js"></script>
+</body>
+</html>

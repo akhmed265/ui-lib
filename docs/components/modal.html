@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Modal</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <!-- Базовый -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">
+        Открывается по <code>data-ui-modal-open="id"</code>, закрывается по
+        <code>data-ui-modal-close</code>, клику по overlay или по <code>Esc</code>.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary" data-ui-modal-open="demo-basic">
+          Открыть модалку
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--primary" data-ui-modal-open="my-modal"&gt;
+  Открыть
+&lt;/button&gt;
+
+&lt;div class="ui-modal" id="my-modal" hidden&gt;
+  &lt;div class="ui-modal__overlay" data-ui-modal-close&gt;&lt;/div&gt;
+  &lt;div class="ui-modal__content" role="dialog" aria-modal="true"&gt;
+    &lt;header class="ui-modal__header"&gt;
+      &lt;h2 class="ui-modal__title"&gt;Заголовок&lt;/h2&gt;
+      &lt;button class="ui-modal__close" data-ui-modal-close aria-label="Закрыть"&gt;×&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;div class="ui-modal__body"&gt;Содержимое&lt;/div&gt;
+    &lt;footer class="ui-modal__footer"&gt;
+      &lt;button class="ui-btn ui-btn--ghost" data-ui-modal-close&gt;Отмена&lt;/button&gt;
+      &lt;button class="ui-btn ui-btn--primary"&gt;ОК&lt;/button&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- Размеры -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--secondary" data-ui-modal-open="demo-sm">Small</button>
+        <button class="ui-btn ui-btn--secondary" data-ui-modal-open="demo-md">Medium</button>
+        <button class="ui-btn ui-btn--secondary" data-ui-modal-open="demo-lg">Large</button>
+        <button class="ui-btn ui-btn--secondary" data-ui-modal-open="demo-full">Fullscreen</button>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-modal ui-modal--sm" id="..." hidden&gt;...&lt;/div&gt;
+&lt;div class="ui-modal" id="..." hidden&gt;...&lt;/div&gt;
+&lt;div class="ui-modal ui-modal--lg" id="..." hidden&gt;...&lt;/div&gt;
+&lt;div class="ui-modal ui-modal--fullscreen" id="..." hidden&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- Static -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Static (важные действия)</h2>
+      <p class="docs-section__desc">
+        Атрибут <code>data-ui-modal-static</code> отключает закрытие по клику на overlay и по
+        <code>Esc</code>. Закрыть можно только явной кнопкой.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--danger" data-ui-modal-open="demo-static">
+          Удалить аккаунт
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-modal" id="my-modal" hidden data-ui-modal-static&gt;
+  ...
+&lt;/div&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+
+<!-- ============ Модалки ============ -->
+
+<div class="ui-modal" id="demo-basic" hidden>
+  <div class="ui-modal__overlay" data-ui-modal-close></div>
+  <div class="ui-modal__content" role="dialog" aria-modal="true" aria-labelledby="demo-basic-title">
+    <header class="ui-modal__header">
+      <h2 class="ui-modal__title" id="demo-basic-title">Заголовок модалки</h2>
+      <button class="ui-modal__close" data-ui-modal-close aria-label="Закрыть">×</button>
+    </header>
+    <div class="ui-modal__body">
+      Это базовый пример модального окна. Попробуй закрыть его через крестик,
+      клик по затемнённому фону или клавишу <kbd>Esc</kbd>. Tab не выходит за пределы
+      окна — это focus trap.
+    </div>
+    <footer class="ui-modal__footer">
+      <button class="ui-btn ui-btn--ghost" data-ui-modal-close>Отмена</button>
+      <button class="ui-btn ui-btn--primary" data-ui-modal-close>ОК</button>
+    </footer>
+  </div>
+</div>
+
+<div class="ui-modal ui-modal--sm" id="demo-sm" hidden>
+  <div class="ui-modal__overlay" data-ui-modal-close></div>
+  <div class="ui-modal__content" role="dialog" aria-modal="true">
+    <header class="ui-modal__header">
+      <h2 class="ui-modal__title">Small (400px)</h2>
+      <button class="ui-modal__close" data-ui-modal-close aria-label="Закрыть">×</button>
+    </header>
+    <div class="ui-modal__body">Узкая модалка для подтверждений.</div>
+  </div>
+</div>
+
+<div class="ui-modal" id="demo-md" hidden>
+  <div class="ui-modal__overlay" data-ui-modal-close></div>
+  <div class="ui-modal__content" role="dialog" aria-modal="true">
+    <header class="ui-modal__header">
+      <h2 class="ui-modal__title">Medium (520px)</h2>
+      <button class="ui-modal__close" data-ui-modal-close aria-label="Закрыть">×</button>
+    </header>
+    <div class="ui-modal__body">Размер по умолчанию.</div>
+  </div>
+</div>
+
+<div class="ui-modal ui-modal--lg" id="demo-lg" hidden>
+  <div class="ui-modal__overlay" data-ui-modal-close></div>
+  <div class="ui-modal__content" role="dialog" aria-modal="true">
+    <header class="ui-modal__header">
+      <h2 class="ui-modal__title">Large (720px)</h2>
+      <button class="ui-modal__close" data-ui-modal-close aria-label="Закрыть">×</button>
+    </header>
+    <div class="ui-modal__body">Широкая модалка для форм и длинного контента.</div>
+  </div>
+</div>
+
+<div class="ui-modal ui-modal--fullscreen" id="demo-full" hidden>
+  <div class="ui-modal__overlay" data-ui-modal-close></div>
+  <div class="ui-modal__content" role="dialog" aria-modal="true">
+    <header class="ui-modal__header">
+      <h2 class="ui-modal__title">Fullscreen</h2>
+      <button class="ui-modal__close" data-ui-modal-close aria-label="Закрыть">×</button>
+    </header>
+    <div class="ui-modal__body">Занимает весь экран.</div>
+  </div>
+</div>
+
+<div class="ui-modal ui-modal--sm" id="demo-static" hidden data-ui-modal-static>
+  <div class="ui-modal__overlay" data-ui-modal-close></div>
+  <div class="ui-modal__content" role="dialog" aria-modal="true">
+    <header class="ui-modal__header">
+      <h2 class="ui-modal__title">Удалить аккаунт?</h2>
+      <button class="ui-modal__close" data-ui-modal-close aria-label="Закрыть">×</button>
+    </header>
+    <div class="ui-modal__body">
+      Это действие нельзя отменить. Модалка <strong>static</strong> —
+      клик по фону и <kbd>Esc</kbd> не закроют её.
+    </div>
+    <footer class="ui-modal__footer">
+      <button class="ui-btn ui-btn--ghost" data-ui-modal-close>Отмена</button>
+      <button class="ui-btn ui-btn--danger" data-ui-modal-close>Удалить</button>
+    </footer>
+  </div>
+</div>
+
+<script src="../components/modal/modal.js" defer></script>
+<script src="../assets/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* ============================================================
+   Select — стилизованный нативный <select>
+   Базовый класс: .ui-select
+   Модификаторы: --sm, --lg, --error, --success
+   Совместим с .ui-field
+   ============================================================ */
+
+   .ui-select {
+    display: block;
+    width: 100%;
+    padding: var(--ui-space-2) var(--ui-space-6) var(--ui-space-2) var(--ui-space-3);
+    font-family: var(--ui-font);
+    font-size: var(--ui-text-md);
+    line-height: 1.4;
+    color: var(--ui-color-text);
+    background-color: var(--ui-color-bg);
+    border: 1.5px solid var(--ui-color-border);
+    border-radius: var(--ui-radius);
+    cursor: pointer;
+    transition:
+      border-color var(--ui-transition),
+      background-color var(--ui-transition),
+      box-shadow var(--ui-transition);
+  
+    /* Убираем нативную стрелку */
+    -webkit-appearance: none;
+            appearance: none;
+  
+    /* Своя стрелка через SVG-маску */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right var(--ui-space-3) center;
+    background-size: 14px;
+  }
+  
+  /* Плейсхолдер — первая опция с пустым value */
+  .ui-select:has(option[value=""]:checked) {
+    color: var(--ui-color-text-muted);
+  }
+  
+  /* Hover */
+  .ui-select:hover:not(:disabled):not(:focus) {
+    border-color: var(--ui-color-text-muted);
+  }
+  
+  /* Focus */
+  .ui-select:focus {
+    outline: none;
+    border-color: var(--ui-color-primary);
+    box-shadow: var(--ui-focus-ring);
+  }
+  
+  /* Disabled */
+  .ui-select:disabled {
+    background-color: var(--ui-color-bg-subtle);
+    color: var(--ui-color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  /* Error */
+  .ui-select--error,
+  .ui-select[aria-invalid="true"] {
+    border-color: var(--ui-color-danger);
+  }
+  .ui-select--error:hover:not(:disabled):not(:focus),
+  .ui-select[aria-invalid="true"]:hover:not(:disabled):not(:focus) {
+    border-color: var(--ui-color-danger);
+  }
+  .ui-select--error:focus,
+  .ui-select[aria-invalid="true"]:focus {
+    border-color: var(--ui-color-danger);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-color-danger) 30%, transparent);
+  }
+  
+  /* Success */
+  .ui-select--success {
+    border-color: #16a34a;
+  }
+  .ui-select--success:focus {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgb(22 163 74 / 0.3);
+  }
+  
+  /* ---------- Размеры ---------- */
+  
+  .ui-select--sm {
+    padding: var(--ui-space-1) var(--ui-space-5) var(--ui-space-1) var(--ui-space-2);
+    font-size: var(--ui-text-sm);
+    border-radius: var(--ui-radius-sm);
+    background-size: 12px;
+    background-position: right var(--ui-space-2) center;
+  }
+  
+  .ui-select--lg {
+    padding: var(--ui-space-3) var(--ui-space-6) var(--ui-space-3) var(--ui-space-4);
+    font-size: var(--ui-text-lg);
+    border-radius: var(--ui-radius-lg);
+    background-size: 16px;
+  }
+  
+  /* ---------- Опции (там, где браузер позволяет) ---------- */
+  
+  .ui-select option {
+    color: var(--ui-color-text);
+    background: var(--ui-color-bg);
+  }
+  
+  .ui-select option:disabled {
+    color: var(--ui-color-text-muted);
+  }
+  
+  /* Тёмная тема — стрелка становится светлой */
+  [data-theme="dark"] .ui-select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='%23f1f5f9' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/></svg>");
+  }

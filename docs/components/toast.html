@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Toast</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">
+        Тост вызывается через <code>UIToast.show({...})</code> или через
+        <code>data-ui-toast</code> на любом элементе. По умолчанию — top-right, 4000 мс,
+        кнопка закрытия.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary"
+                data-ui-toast="Это базовое уведомление">
+          Показать тост
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button data-ui-toast="Это базовое уведомление"&gt;Показать&lt;/button&gt;
+
+// или через API
+UIToast.show({ message: "Это базовое уведомление" });</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Типы</h2>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Что-то произошло"
+                data-ui-toast-type="info"
+                data-ui-toast-title="Информация">
+          Info
+        </button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Изменения применены"
+                data-ui-toast-type="success"
+                data-ui-toast-title="Сохранено">
+          Success
+        </button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Файл большой"
+                data-ui-toast-type="warning"
+                data-ui-toast-title="Внимание">
+          Warning
+        </button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Что-то пошло не так"
+                data-ui-toast-type="error"
+                data-ui-toast-title="Ошибка">
+          Error
+        </button>
+      </div>
+
+<pre class="docs-code"><code>UIToast.show({
+  type: "success",
+  title: "Сохранено",
+  message: "Изменения применены",
+});</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Позиции</h2>
+      <p class="docs-section__desc">
+        <code>data-ui-toast-position</code>: top-right (по умолчанию), top-left,
+        top-center, bottom-right, bottom-left, bottom-center.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Top left" data-ui-toast-position="top-left">Top Left</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Top center" data-ui-toast-position="top-center">Top Center</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Top right" data-ui-toast-position="top-right">Top Right</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Bottom left" data-ui-toast-position="bottom-left">Bottom Left</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Bottom center" data-ui-toast-position="bottom-center">Bottom Center</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Bottom right" data-ui-toast-position="bottom-right">Bottom Right</button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button data-ui-toast="Top left" data-ui-toast-position="top-left"&gt;...&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Длительность</h2>
+      <p class="docs-section__desc">
+        <code>data-ui-toast-duration</code> в миллисекундах.
+        <code>0</code> — не закрывать автоматически.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Закроюсь через 1 секунду"
+                data-ui-toast-duration="1000">
+          1 сек
+        </button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Стандартные 4 секунды">
+          По умолчанию
+        </button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-toast="Не закроюсь, пока не нажмёшь крестик"
+                data-ui-toast-duration="0">
+          Не закрывать
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button data-ui-toast="..." data-ui-toast-duration="1000"&gt;1 сек&lt;/button&gt;
+&lt;button data-ui-toast="..." data-ui-toast-duration="0"&gt;Не закрывать&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Пауза на hover</h2>
+      <p class="docs-section__desc">
+        Наведи курсор на тост — таймер замрётся. Убери — обратный отсчёт продолжится.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary"
+                data-ui-toast="Наведи на меня курсор"
+                data-ui-toast-type="info">
+          Показать
+        </button>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Лимит и API</h2>
+      <p class="docs-section__desc">
+        Одновременно на экране — не больше 5 тостов. Старые вытесняются новыми.
+        Можно закрыть все программно через <code>UIToast.closeAll()</code>.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--secondary" id="spam">
+          Показать 7 тостов сразу
+        </button>
+        <button class="ui-btn ui-btn--ghost" id="closeAll">
+          Закрыть все
+        </button>
+      </div>
+
+<pre class="docs-code"><code>UIToast.show({ message: "..." });
+UIToast.closeAll();</code></pre>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../docs/components/toast/toast.js" defer></script>
+<script src="../assets/sidebar.js" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const spam = document.getElementById("spam");
+    if (spam) {
+      spam.addEventListener("click", () => {
+        const types = ["info", "success", "warning", "error"];
+        for (let i = 1; i <= 7; i++) {
+          UIToast.show({
+            type: types[(i - 1) % 4],
+            title: `Тост #${i}`,
+            message: "Демонстрация лимита в 5 тостов",
+            duration: 4000,
+            position: "top-right",
+          });
+        }
+      });
+    }
+
+    const closeAll = document.getElementById("closeAll");
+    if (closeAll) {
+      closeAll.addEventListener("click", () => UIToast.closeAll());
+    }
+  });
+</script>
+</body>
+</html>

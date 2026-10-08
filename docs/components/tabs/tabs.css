@@ -1,0 +1,176 @@
+/* ============================================================
+   Tabs
+   Базовый класс: .ui-tabs
+   Части: __list, __tab, __panel
+   Модификаторы: --pills, --sm, --lg, --scrollable
+   ============================================================ */
+
+   .ui-tabs {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ui-font);
+  }
+  
+  /* ---------- Список табов ---------- */
+  
+  .ui-tabs__list {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    gap: var(--ui-space-1);
+    border-bottom: 1px solid var(--ui-color-border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  
+  .ui-tabs__list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* ---------- Таб ---------- */
+  
+  .ui-tabs__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ui-space-2);
+  
+    padding: var(--ui-space-3) var(--ui-space-4);
+    font-family: var(--ui-font);
+    font-size: var(--ui-text-md);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--ui-color-text-muted);
+    white-space: nowrap;
+  
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    cursor: pointer;
+    transition:
+      color var(--ui-transition),
+      border-color var(--ui-transition),
+      background-color var(--ui-transition);
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .ui-tabs__tab:hover:not(:disabled):not([aria-selected="true"]) {
+    color: var(--ui-color-text);
+  }
+  
+  .ui-tabs__tab:focus-visible {
+    outline: none;
+    box-shadow: var(--ui-focus-ring);
+    border-radius: var(--ui-radius-sm);
+  }
+  
+  .ui-tabs__tab[aria-selected="true"] {
+    color: var(--ui-color-primary);
+    border-bottom-color: var(--ui-color-primary);
+  }
+  
+  .ui-tabs__tab:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  /* ---------- Панель ---------- */
+  
+  .ui-tabs__panel {
+    padding: var(--ui-space-4) 0;
+    color: var(--ui-color-text);
+    font-size: var(--ui-text-md);
+    line-height: 1.5;
+  }
+  
+  .ui-tabs__panel[hidden] {
+    display: none;
+  }
+  
+  /* ============================================================
+     Вариант pills
+     ============================================================ */
+  
+  .ui-tabs--pills .ui-tabs__list {
+    border-bottom: none;
+    background: var(--ui-color-bg-subtle);
+    padding: var(--ui-space-1);
+    border-radius: var(--ui-radius);
+    gap: var(--ui-space-1);
+  }
+  
+  .ui-tabs--pills .ui-tabs__tab {
+    border-bottom: none;
+    margin-bottom: 0;
+    border-radius: var(--ui-radius-sm);
+    padding: var(--ui-space-2) var(--ui-space-3);
+    color: var(--ui-color-text-muted);
+  }
+  
+  .ui-tabs--pills .ui-tabs__tab[aria-selected="true"] {
+    background: var(--ui-color-bg);
+    color: var(--ui-color-text);
+    box-shadow: var(--ui-shadow-sm);
+  }
+  
+  .ui-tabs--pills .ui-tabs__tab:hover:not(:disabled):not([aria-selected="true"]) {
+    color: var(--ui-color-text);
+  }
+  
+  /* ============================================================
+     Размеры
+     ============================================================ */
+  
+  .ui-tabs--sm .ui-tabs__tab {
+    padding: var(--ui-space-2) var(--ui-space-3);
+    font-size: var(--ui-text-sm);
+  }
+  .ui-tabs--sm .ui-tabs__panel {
+    padding: var(--ui-space-3) 0;
+  }
+  
+  .ui-tabs--lg .ui-tabs__tab {
+    padding: var(--ui-space-4) var(--ui-space-5);
+    font-size: var(--ui-text-lg);
+  }
+  .ui-tabs--lg .ui-tabs__panel {
+    padding: var(--ui-space-5) 0;
+  }
+  
+  /* ============================================================
+     Scrollable — fade по краям
+     ============================================================ */
+  
+  .ui-tabs--scrollable .ui-tabs__list {
+    position: relative;
+    padding: 0 var(--ui-space-4);
+  }
+  
+  .ui-tabs--scrollable .ui-tabs__list::before,
+  .ui-tabs--scrollable .ui-tabs__list::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--ui-space-4);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity var(--ui-transition);
+  }
+  
+  .ui-tabs--scrollable .ui-tabs__list::before {
+    left: 0;
+    background: linear-gradient(to right, var(--ui-color-bg), transparent);
+  }
+  
+  .ui-tabs--scrollable .ui-tabs__list::after {
+    right: 0;
+    background: linear-gradient(to left, var(--ui-color-bg), transparent);
+  }
+  
+  .ui-tabs--scrollable.is-scrollable::before,
+  .ui-tabs--scrollable.is-scrollable::after {
+    opacity: 1;
+  }

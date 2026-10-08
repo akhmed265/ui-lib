@@ -1,0 +1,45 @@
+:root {
+  /* Шрифты */
+  --ui-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ui-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Радиусы */
+  --ui-radius-sm: 6px;
+  --ui-radius: 8px;
+  --ui-radius-lg: 12px;
+  --ui-radius-full: 9999px;
+
+  /* Цвета — светлая тема */
+  --ui-color-bg: #ffffff;
+  --ui-color-bg-subtle: #f3f4f6;
+  --ui-color-bg-muted: #e5e7eb;
+  --ui-color-text: #111827;
+  --ui-color-text-muted: #6b7280;
+  --ui-color-border: #d1d5db;
+
+  --ui-color-primary: #2563eb;
+  --ui-color-primary-hover: #1d4ed8;
+  --ui-color-primary-active: #1e40af;
+
+  --ui-color-danger: #dc2626;
+  --ui-color-danger-hover: #b91c1c;
+
+  /* Отступы */
+  --ui-space-1: 4px;
+  --ui-space-2: 8px;
+  --ui-space-3: 12px;
+  --ui-space-4: 16px;
+  --ui-space-5: 24px;
+  --ui-space-6: 32px;
+
+  /* Типографика */
+  --ui-text-sm: 13px;
+  --ui-text-md: 14px;
+  --ui-text-lg: 16px;
+
+  /* Прочее */
+  --ui-transition: 150ms ease;
+  --ui-focus-ring: 0 0 0 3px rgb(37 99 235 / 0.35);
+  --ui-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --ui-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+}

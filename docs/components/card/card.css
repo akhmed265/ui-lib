@@ -1,0 +1,202 @@
+/* ============================================================
+   Card
+   Базовый класс: .ui-card
+   Части: __header, __title, __subtitle, __body, __footer, __media
+   Модификаторы: --hoverable, --flat, --horizontal, --compact,
+                 --sm, --lg, --accent, --accent-{color}
+   ============================================================ */
+
+   .ui-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--ui-color-bg);
+    border: 1px solid var(--ui-color-border);
+    border-radius: var(--ui-radius-lg);
+    box-shadow: var(--ui-shadow-sm);
+    overflow: hidden;
+    transition:
+      box-shadow var(--ui-transition),
+      transform var(--ui-transition),
+      border-color var(--ui-transition);
+  }
+  
+  /* Если внутри нет структурных частей — даём padding самому card */
+  .ui-card:not(:has(.ui-card__header, .ui-card__body, .ui-card__footer, .ui-card__media)) {
+    padding: var(--ui-space-5);
+  }
+  
+  /* ---------- Части ---------- */
+  
+  .ui-card__header {
+    padding: var(--ui-space-4) var(--ui-space-5);
+    border-bottom: 1px solid var(--ui-color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-space-1);
+  }
+  
+  .ui-card__title {
+    margin: 0;
+    font-size: var(--ui-text-lg);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ui-color-text);
+  }
+  
+  .ui-card__subtitle {
+    margin: 0;
+    font-size: var(--ui-text-sm);
+    color: var(--ui-color-text-muted);
+    line-height: 1.4;
+  }
+  
+  .ui-card__body {
+    padding: var(--ui-space-5);
+    flex: 1;
+    color: var(--ui-color-text);
+    font-size: var(--ui-text-md);
+    line-height: 1.5;
+  }
+  
+  .ui-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--ui-space-2);
+    padding: var(--ui-space-3) var(--ui-space-5);
+    border-top: 1px solid var(--ui-color-border);
+    background: var(--ui-color-bg-subtle);
+  }
+  
+  /* Медиа — во всю ширину, без паддингов */
+  .ui-card__media {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  
+  /* ---------- Hoverable ---------- */
+  
+  .ui-card--hoverable {
+    cursor: pointer;
+  }
+  
+  .ui-card--hoverable:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--ui-color-primary) 40%, var(--ui-color-border));
+    box-shadow: var(--ui-shadow);
+  }
+  
+  .ui-card--hoverable:focus-visible {
+    outline: none;
+    box-shadow: var(--ui-focus-ring), var(--ui-shadow);
+  }
+  
+  /* ---------- Flat ---------- */
+  
+  .ui-card--flat {
+    box-shadow: none;
+  }
+  
+  .ui-card--flat.ui-card--hoverable:hover {
+    box-shadow: var(--ui-shadow-sm);
+  }
+  
+  /* ---------- Размеры ---------- */
+  
+  .ui-card--sm {
+    border-radius: var(--ui-radius);
+  }
+  .ui-card--sm:not(:has(.ui-card__header, .ui-card__body, .ui-card__footer, .ui-card__media)) {
+    padding: var(--ui-space-4);
+  }
+  .ui-card--sm .ui-card__header {
+    padding: var(--ui-space-3) var(--ui-space-4);
+  }
+  .ui-card--sm .ui-card__body {
+    padding: var(--ui-space-4);
+  }
+  .ui-card--sm .ui-card__footer {
+    padding: var(--ui-space-2) var(--ui-space-4);
+  }
+  .ui-card--sm .ui-card__title {
+    font-size: var(--ui-text-md);
+  }
+  
+  .ui-card--lg {
+    border-radius: var(--ui-radius-lg);
+  }
+  .ui-card--lg:not(:has(.ui-card__header, .ui-card__body, .ui-card__footer, .ui-card__media)) {
+    padding: var(--ui-space-6);
+  }
+  .ui-card--lg .ui-card__header {
+    padding: var(--ui-space-5) var(--ui-space-6);
+  }
+  .ui-card--lg .ui-card__body {
+    padding: var(--ui-space-6);
+  }
+  .ui-card--lg .ui-card__footer {
+    padding: var(--ui-space-4) var(--ui-space-6);
+  }
+  .ui-card--lg .ui-card__title {
+    font-size: 20px;
+  }
+  
+  /* ---------- Compact ---------- */
+  
+  .ui-card--compact:not(:has(.ui-card__header, .ui-card__body, .ui-card__footer, .ui-card__media)) {
+    padding: var(--ui-space-3);
+  }
+  .ui-card--compact .ui-card__header {
+    padding: var(--ui-space-2) var(--ui-space-3);
+  }
+  .ui-card--compact .ui-card__body {
+    padding: var(--ui-space-3);
+  }
+  .ui-card--compact .ui-card__footer {
+    padding: var(--ui-space-2) var(--ui-space-3);
+  }
+  
+  /* ---------- Horizontal ---------- */
+  
+  .ui-card--horizontal {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .ui-card--horizontal .ui-card__media {
+    width: 180px;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  
+  .ui-card--horizontal > .ui-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  @media (max-width: 560px) {
+    .ui-card--horizontal {
+      flex-direction: column;
+    }
+    .ui-card--horizontal .ui-card__media {
+      width: 100%;
+      height: 160px;
+    }
+  }
+  
+  /* ---------- Accent-полоса ---------- */
+  
+  .ui-card--accent {
+    border-top: 4px solid var(--ui-color-primary);
+  }
+  
+  .ui-card--accent-primary { border-top-color: var(--ui-color-primary); }
+  .ui-card--accent-success { border-top-color: #16a34a; }
+  .ui-card--accent-warning { border-top-color: #f59e0b; }
+  .ui-card--accent-danger  { border-top-color: var(--ui-color-danger); }

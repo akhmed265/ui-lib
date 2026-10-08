@@ -1,0 +1,172 @@
+/* ============================================================
+   Checkbox
+   Базовый класс: .ui-checkbox
+   Модификаторы: --sm, --lg, --switch
+   ============================================================ */
+
+   .ui-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ui-space-2);
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--ui-text-md);
+    color: var(--ui-color-text);
+    line-height: 1.4;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .ui-checkbox__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  
+  /* ---------- Кастомный квадрат ---------- */
+  
+  .ui-checkbox__box {
+    position: relative;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--ui-color-border);
+    border-radius: var(--ui-radius-sm);
+    background: var(--ui-color-bg);
+    transition:
+      background-color var(--ui-transition),
+      border-color var(--ui-transition),
+      box-shadow var(--ui-transition);
+  }
+  
+  .ui-checkbox__box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3.5 3.5L13 5'/></svg>") center / 12px no-repeat;
+            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3.5 3.5L13 5'/></svg>") center / 12px no-repeat;
+    color: #fff;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity var(--ui-transition), transform var(--ui-transition);
+  }
+  
+  /* Hover — только для НЕвыбранного состояния, чтобы не конфликтовать */
+  .ui-checkbox:hover .ui-checkbox__input:not(:checked):not(:disabled) ~ .ui-checkbox__box {
+    border-color: var(--ui-color-primary);
+    background: color-mix(in srgb, var(--ui-color-primary) 8%, var(--ui-color-bg));
+  }
+  
+  /* Checked */
+  .ui-checkbox__input:checked ~ .ui-checkbox__box {
+    background: var(--ui-color-primary);
+    border-color: var(--ui-color-primary);
+  }
+  .ui-checkbox__input:checked ~ .ui-checkbox__box::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Focus */
+  .ui-checkbox__input:focus-visible ~ .ui-checkbox__box {
+    box-shadow: var(--ui-focus-ring);
+  }
+  
+  /* Disabled */
+  .ui-checkbox__input:disabled ~ .ui-checkbox__box,
+  .ui-checkbox__input:disabled ~ .ui-checkbox__label {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* ---------- Размеры (с усиленной специфичностью) ---------- */
+  
+  .ui-checkbox.ui-checkbox--sm { font-size: var(--ui-text-sm); gap: var(--ui-space-1); }
+  .ui-checkbox.ui-checkbox--sm .ui-checkbox__box {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+  }
+  .ui-checkbox.ui-checkbox--sm .ui-checkbox__box::after {
+    background-size: 10px;
+  }
+  
+  .ui-checkbox.ui-checkbox--lg { font-size: var(--ui-text-lg); gap: var(--ui-space-3); }
+  .ui-checkbox.ui-checkbox--lg .ui-checkbox__box {
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+  }
+  .ui-checkbox.ui-checkbox--lg .ui-checkbox__box::after {
+    background-size: 15px;
+  }
+  
+  /* ---------- Indeterminate ---------- */
+  
+  .ui-checkbox__input:indeterminate ~ .ui-checkbox__box {
+    background: var(--ui-color-primary);
+    border-color: var(--ui-color-primary);
+  }
+  .ui-checkbox__input:indeterminate ~ .ui-checkbox__box::after {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' d='M4 8h8'/></svg>") center / 12px no-repeat;
+            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' d='M4 8h8'/></svg>") center / 12px no-repeat;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* ============================================================
+     Switch — полностью переписан, НЕ наследует ::after чекбокса
+     ============================================================ */
+  
+  .ui-checkbox--switch .ui-checkbox__box {
+    width: 40px;
+    height: 22px;
+    border: none;
+    border-radius: var(--ui-radius-full);
+    background: var(--ui-color-bg-muted);
+    transition: background-color var(--ui-transition);
+  }
+  
+  /* Сбрасываем унаследованный ::after и делаем свой кружок */
+  .ui-checkbox--switch .ui-checkbox__box::after {
+    content: "";
+    position: absolute;
+    inset: auto;
+    left: 3px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-mask: none;
+            mask: none;
+    opacity: 1;
+    transform: none;
+    box-shadow: var(--ui-shadow-sm);
+    transition: transform var(--ui-transition);
+  }
+  
+  .ui-checkbox--switch:hover .ui-checkbox__input:not(:checked):not(:disabled) ~ .ui-checkbox__box {
+    background: var(--ui-color-border);
+  }
+  
+  .ui-checkbox--switch .ui-checkbox__input:checked ~ .ui-checkbox__box {
+    background: var(--ui-color-primary);
+  }
+  .ui-checkbox--switch .ui-checkbox__input:checked ~ .ui-checkbox__box::after {
+    transform: translateX(18px);
+  }
+  
+  .ui-checkbox--switch .ui-checkbox__input:focus-visible ~ .ui-checkbox__box {
+    box-shadow: var(--ui-focus-ring);
+  }
+  
+  .ui-checkbox--switch .ui-checkbox__input:disabled ~ .ui-checkbox__box {
+    opacity: 0.5;
+  }

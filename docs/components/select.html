@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Select</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">
+        Стилизованный нативный <code>&lt;select&gt;</code>. Работает с клавиатурой,
+        формами и мобильным picker из коробки. Своя стрелка через SVG-маску.
+      </p>
+
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <label class="ui-field">
+          <span class="ui-field__label">Страна</span>
+          <select class="ui-select">
+            <option value="">Выберите страну</option>
+            <option value="ru">Россия</option>
+            <option value="us">США</option>
+            <option value="de">Германия</option>
+            <option value="jp">Япония</option>
+          </select>
+          <span class="ui-field__hint">Можно изменить позже</span>
+        </label>
+
+        <select class="ui-select">
+          <option value="">Без label — просто select</option>
+          <option value="1">Опция 1</option>
+          <option value="2">Опция 2</option>
+        </select>
+      </div>
+
+<pre class="docs-code"><code>&lt;label class="ui-field"&gt;
+  &lt;span class="ui-field__label"&gt;Страна&lt;/span&gt;
+  &lt;select class="ui-select"&gt;
+    &lt;option value=""&gt;Выберите страну&lt;/option&gt;
+    &lt;option value="ru"&gt;Россия&lt;/option&gt;
+    &lt;option value="us"&gt;США&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;span class="ui-field__hint"&gt;Можно изменить позже&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;select class="ui-select"&gt;
+  &lt;option value=""&gt;Без label — просто select&lt;/option&gt;
+  &lt;option value="1"&gt;Опция 1&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <select class="ui-select ui-select--sm">
+          <option>Small</option>
+        </select>
+        <select class="ui-select">
+          <option>Medium (по умолчанию)</option>
+        </select>
+        <select class="ui-select ui-select--lg">
+          <option>Large</option>
+        </select>
+      </div>
+
+<pre class="docs-code"><code>&lt;select class="ui-select ui-select--sm"&gt;...&lt;/select&gt;
+&lt;select class="ui-select"&gt;...&lt;/select&gt;
+&lt;select class="ui-select ui-select--lg"&gt;...&lt;/select&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Состояния</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <select class="ui-select">
+          <option>Обычный</option>
+        </select>
+
+        <select class="ui-select" disabled>
+          <option>Disabled</option>
+        </select>
+
+        <select class="ui-select ui-select--error" aria-invalid="true">
+          <option>С ошибкой</option>
+          <option>Вариант 2</option>
+        </select>
+
+        <select class="ui-select ui-select--success">
+          <option>Успешно</option>
+          <option>Вариант 2</option>
+        </select>
+      </div>
+
+<pre class="docs-code"><code>&lt;select class="ui-select"&gt;...&lt;/select&gt;
+&lt;select class="ui-select" disabled&gt;...&lt;/select&gt;
+&lt;select class="ui-select ui-select--error" aria-invalid="true"&gt;...&lt;/select&gt;
+&lt;select class="ui-select ui-select--success"&gt;...&lt;/select&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Field с ошибкой</h2>
+      <p class="docs-section__desc">
+        Как у input: <code>--error</code> на <code>.ui-field</code> скрывает hint,
+        показывает error, а <code>--error</code> на <code>.ui-select</code> красит рамку.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 400px;">
+        <label class="ui-field ui-field--error">
+          <span class="ui-field__label">Город</span>
+          <select class="ui-select ui-select--error" aria-invalid="true">
+            <option value="">Выберите город</option>
+            <option value="msk">Москва</option>
+            <option value="spb">Санкт-Петербург</option>
+          </select>
+          <span class="ui-field__hint">Обязательное поле</span>
+          <span class="ui-field__error">Пожалуйста, выберите город</span>
+        </label>
+      </div>
+
+<pre class="docs-code"><code>&lt;label class="ui-field ui-field--error"&gt;
+  &lt;span class="ui-field__label"&gt;Город&lt;/span&gt;
+  &lt;select class="ui-select ui-select--error" aria-invalid="true"&gt;
+    &lt;option value=""&gt;Выберите город&lt;/option&gt;
+    &lt;option value="msk"&gt;Москва&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;span class="ui-field__hint"&gt;Обязательное поле&lt;/span&gt;
+  &lt;span class="ui-field__error"&gt;Пожалуйста, выберите город&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js"></script>
+</body>
+</html>

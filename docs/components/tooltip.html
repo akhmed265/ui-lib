@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Tooltip</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">
+        Любой элемент с <code>data-ui-tooltip="текст"</code>. Показывается
+        по hover, по focus (Tab), скрывается по <code>Esc</code> и по клику.
+        Задержка по умолчанию — 200 мс.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary" data-ui-tooltip="Это подсказка сверху">
+          Наведи на меня
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--primary" data-ui-tooltip="Это подсказка сверху"&gt;
+  Наведи на меня
+&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Позиции</h2>
+      <p class="docs-section__desc">
+        <code>data-ui-tooltip-placement</code>: <code>top</code> (по умолчанию),
+        <code>bottom</code>, <code>left</code>, <code>right</code>.
+        Если не влезает — автоматически переворачивается.
+      </p>
+      <div class="docs-demo" style="justify-content: center; gap: 24px; padding: 80px 24px;">
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-tooltip="Сверху" data-ui-tooltip-placement="top">Top</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-tooltip="Снизу" data-ui-tooltip-placement="bottom">Bottom</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-tooltip="Слева" data-ui-tooltip-placement="left">Left</button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-tooltip="Справа" data-ui-tooltip-placement="right">Right</button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button data-ui-tooltip="Сверху" data-ui-tooltip-placement="top"&gt;Top&lt;/button&gt;
+&lt;button data-ui-tooltip="Снизу" data-ui-tooltip-placement="bottom"&gt;Bottom&lt;/button&gt;
+&lt;button data-ui-tooltip="Слева" data-ui-tooltip-placement="left"&gt;Left&lt;/button&gt;
+&lt;button data-ui-tooltip="Справа" data-ui-tooltip-placement="right"&gt;Right&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Задержка</h2>
+      <p class="docs-section__desc">
+        <code>data-ui-tooltip-delay="0"</code> — показ мгновенно.
+        Можно задать любую задержку в миллисекундах.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-tooltip="Показ мгновенно" data-ui-tooltip-delay="0">
+          Delay: 0
+        </button>
+        <button class="ui-btn ui-btn--secondary"
+                data-ui-tooltip="Через 1 секунду" data-ui-tooltip-delay="1000">
+          Delay: 1000
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button data-ui-tooltip="Показ мгновенно" data-ui-tooltip-delay="0"&gt;Delay: 0&lt;/button&gt;
+&lt;button data-ui-tooltip="Через 1 секунду" data-ui-tooltip-delay="1000"&gt;Delay: 1000&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">На других элементах</h2>
+      <div class="docs-demo">
+        <span class="ui-checkbox" style="cursor: help;"
+              data-ui-tooltip="Это чекбокс с подсказкой">
+          <input type="checkbox" class="ui-checkbox__input">
+          <span class="ui-checkbox__box" aria-hidden="true"></span>
+          <span class="ui-checkbox__label">Наведи на меня</span>
+        </span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span data-ui-tooltip="Это чекбокс с подсказкой"&gt;...&lt;/span&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+<script src="../components/tooltip/tooltip.js" defer></script>
+<script src="../assets/sidebar.js"></script>
+</body>
+</html>

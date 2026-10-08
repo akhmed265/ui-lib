@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Lib — документация</title>
+  <link rel="stylesheet" href="../src/ui.css">
+  <link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <!-- Сайдбар -->
+  <aside class="docs-sidebar">
+    <a href="index.html" class="docs-sidebar__logo">UI Lib</a>
+
+    <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <!-- Контент -->
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>UI Lib</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <p class="docs-section__desc">
+      Минималистичная UI-библиотека на чистом HTML, CSS и JavaScript.
+      Выбери компонент, чтобы посмотреть примеры и код.
+    </p>
+
+    <div class="docs-cards">
+      <a href="components/button.html" class="docs-card">
+        <h3 class="docs-card__title">Кнопки</h3>
+        <p class="docs-card__desc">Primary, secondary, ghost, danger, link. Размеры и состояния.</p>
+      </a>
+      <a href="components/checkbox.html" class="docs-card">
+        <h3 class="docs-card__title">Чекбоксы</h3>
+        <p class="docs-card__desc">Скошенный угол, анимированная галочка, switch, indeterminate.</p>
+      </a>
+      <a href="components/radio.html" class="docs-card">
+        <h3 class="docs-card__title">Radio</h3>
+        <p class="docs-card__desc">Радиокнопки с градиентом и свечением. Группы, размеры, состояния.</p>
+      </a>
+      <a href="components/input.html" class="docs-card">
+        <h3 class="docs-card__title">Поля ввода</h3>
+        <p class="docs-card__desc">Input, textarea, размеры, состояния, input-group с префиксом и суффиксом.</p>
+      </a>
+      <a href="components/select.html" class="docs-card">
+        <h3 class="docs-card__title">Select</h3>
+        <p class="docs-card__desc">Стилизованный нативный select: размеры, состояния, плейсхолдер, своя стрелка.</p>
+      </a>
+      <a href="components/modal.html" class="docs-card">
+        <h3 class="docs-card__title">Modal</h3>
+        <p class="docs-card__desc">Модальные окна с overlay, анимацией, focus trap и режимом static.</p>
+      </a>
+      <a href="components/tooltip.html" class="docs-card">
+        <h3 class="docs-card__title">Tooltip</h3>
+        <p class="docs-card__desc">Всплывающие подсказки на hover и focus. 4 позиции, авто-флип, задержка.</p>
+      </a>
+      <a href="components/toast.html" class="docs-card">
+        <h3 class="docs-card__title">Toast</h3>
+        <p class="docs-card__desc">Всплывающие уведомления. 4 типа, 6 позиций, стек, пауза на hover.</p>
+      </a>
+      <a href="components/card.html" class="docs-card">
+        <h3 class="docs-card__title">Card</h3>
+        <p class="docs-card__desc">Контейнеры для контента. Части, размеры, accent, horizontal, hoverable.</p>
+      </a>
+      <a href="components/tabs.html" class="docs-card">
+        <h3 class="docs-card__title">Tabs</h3>
+        <p class="docs-card__desc">Переключатель панелей. Underline и pills, размеры, клавиатура, ARIA, scrollable.</p>
+      </a>
+      <a href="components/accordion.html" class="docs-card">
+        <h3 class="docs-card__title">Accordion</h3>
+        <p class="docs-card__desc">Сворачиваемые секции. Single и multiple, размеры, separated, bordered.</p>
+      </a>
+    </div>
+  </main>
+
+</div>
+<script src="./assets/sidebar.js"></script>
+</body>
+</html>

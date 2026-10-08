@@ -1,0 +1,285 @@
+/* ============================================================
+   Field — обёртка для input/textarea с label, hint, error
+   ============================================================ */
+
+   .ui-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-space-1);
+    font-family: var(--ui-font);
+  }
+  
+  .ui-field__label {
+    font-size: var(--ui-text-sm);
+    font-weight: 500;
+    color: var(--ui-color-text);
+    line-height: 1.4;
+  }
+  
+  .ui-field__hint {
+    font-size: var(--ui-text-sm);
+    color: var(--ui-color-text-muted);
+    line-height: 1.4;
+  }
+  
+  .ui-field__error {
+    font-size: var(--ui-text-sm);
+    color: var(--ui-color-danger);
+    line-height: 1.4;
+  }
+  
+  /* Показываем error вместо hint, если поле с ошибкой */
+  .ui-field--error .ui-field__hint {
+    display: none;
+  }
+  
+  /* ============================================================
+     Input — базовое текстовое поле
+     Модификаторы: --sm, --lg, --error, --success
+     ============================================================ */
+  
+  .ui-input {
+    display: block;
+    width: 100%;
+    padding: var(--ui-space-2) var(--ui-space-3);
+    font-family: var(--ui-font);
+    font-size: var(--ui-text-md);
+    line-height: 1.4;
+    color: var(--ui-color-text);
+    background: var(--ui-color-bg);
+    border: 1.5px solid var(--ui-color-border);
+    border-radius: var(--ui-radius);
+    transition:
+      border-color var(--ui-transition),
+      background-color var(--ui-transition),
+      box-shadow var(--ui-transition);
+    -webkit-appearance: none;
+            appearance: none;
+  }
+  
+  .ui-input::placeholder {
+    color: var(--ui-color-text-muted);
+    opacity: 1;
+  }
+  
+  /* Hover */
+  .ui-input:hover:not(:disabled):not(:focus) {
+    border-color: var(--ui-color-text-muted);
+  }
+  
+  /* Focus */
+  .ui-input:focus {
+    outline: none;
+    border-color: var(--ui-color-primary);
+    box-shadow: var(--ui-focus-ring);
+  }
+  
+  /* Disabled */
+  .ui-input:disabled {
+    background: var(--ui-color-bg-subtle);
+    color: var(--ui-color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  /* Readonly */
+  .ui-input[readonly] {
+    background: var(--ui-color-bg-subtle);
+    cursor: default;
+  }
+  
+  /* Error */
+  .ui-input--error,
+  .ui-input[aria-invalid="true"] {
+    border-color: var(--ui-color-danger);
+  }
+  .ui-input--error:hover:not(:disabled):not(:focus),
+  .ui-input[aria-invalid="true"]:hover:not(:disabled):not(:focus) {
+    border-color: var(--ui-color-danger);
+  }
+  .ui-input--error:focus,
+  .ui-input[aria-invalid="true"]:focus {
+    border-color: var(--ui-color-danger);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-color-danger) 30%, transparent);
+  }
+  
+  /* Success */
+  .ui-input--success {
+    border-color: #16a34a;
+  }
+  .ui-input--success:focus {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgb(22 163 74 / 0.3);
+  }
+  
+  /* ---------- Размеры ---------- */
+  
+  .ui-input--sm {
+    padding: var(--ui-space-1) var(--ui-space-2);
+    font-size: var(--ui-text-sm);
+    border-radius: var(--ui-radius-sm);
+  }
+  
+  .ui-input--lg {
+    padding: var(--ui-space-3) var(--ui-space-4);
+    font-size: var(--ui-text-lg);
+    border-radius: var(--ui-radius-lg);
+  }
+  
+  /* ============================================================
+     Textarea — многострочное поле
+     Модификаторы: --sm, --lg, --error
+     ============================================================ */
+  
+  .ui-textarea {
+    display: block;
+    width: 100%;
+    padding: var(--ui-space-2) var(--ui-space-3);
+    font-family: var(--ui-font);
+    font-size: var(--ui-text-md);
+    line-height: 1.5;
+    color: var(--ui-color-text);
+    background: var(--ui-color-bg);
+    border: 1.5px solid var(--ui-color-border);
+    border-radius: var(--ui-radius);
+    resize: vertical;
+    min-height: 80px;
+    transition:
+      border-color var(--ui-transition),
+      background-color var(--ui-transition),
+      box-shadow var(--ui-transition);
+    -webkit-appearance: none;
+            appearance: none;
+  }
+  
+  .ui-textarea::placeholder {
+    color: var(--ui-color-text-muted);
+    opacity: 1;
+  }
+  
+  .ui-textarea:hover:not(:disabled):not(:focus) {
+    border-color: var(--ui-color-text-muted);
+  }
+  
+  .ui-textarea:focus {
+    outline: none;
+    border-color: var(--ui-color-primary);
+    box-shadow: var(--ui-focus-ring);
+  }
+  
+  .ui-textarea:disabled {
+    background: var(--ui-color-bg-subtle);
+    color: var(--ui-color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+    resize: none;
+  }
+  
+  .ui-textarea[readonly] {
+    background: var(--ui-color-bg-subtle);
+    cursor: default;
+  }
+  
+  .ui-textarea--error,
+  .ui-textarea[aria-invalid="true"] {
+    border-color: var(--ui-color-danger);
+  }
+  .ui-textarea--error:focus,
+  .ui-textarea[aria-invalid="true"]:focus {
+    border-color: var(--ui-color-danger);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-color-danger) 30%, transparent);
+  }
+  
+  .ui-textarea--sm {
+    padding: var(--ui-space-1) var(--ui-space-2);
+    font-size: var(--ui-text-sm);
+    border-radius: var(--ui-radius-sm);
+    min-height: 60px;
+  }
+  
+  .ui-textarea--lg {
+    padding: var(--ui-space-3) var(--ui-space-4);
+    font-size: var(--ui-text-lg);
+    border-radius: var(--ui-radius-lg);
+    min-height: 110px;
+  }
+  
+  /* ============================================================
+     Input Group — префикс/суффикс внутри поля
+     ============================================================ */
+  
+  .ui-input-group {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    border: 1.5px solid var(--ui-color-border);
+    border-radius: var(--ui-radius);
+    background: var(--ui-color-bg);
+    transition:
+      border-color var(--ui-transition),
+      box-shadow var(--ui-transition);
+    overflow: hidden;
+  }
+  
+  .ui-input-group:hover {
+    border-color: var(--ui-color-text-muted);
+  }
+  
+  .ui-input-group:focus-within {
+    border-color: var(--ui-color-primary);
+    box-shadow: var(--ui-focus-ring);
+  }
+  
+  /* Инпут внутри группы — без своей рамки и фона */
+  .ui-input-group .ui-input {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none !important;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .ui-input-group .ui-input:hover {
+    border-color: transparent;
+  }
+  
+  .ui-input-group .ui-input:focus {
+    border-color: transparent;
+    box-shadow: none;
+  }
+  
+  /* Префикс и суффикс */
+  .ui-input-group__prefix,
+  .ui-input-group__suffix {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 var(--ui-space-3);
+    font-size: var(--ui-text-md);
+    color: var(--ui-color-text-muted);
+    background: var(--ui-color-bg-subtle);
+    border-right: 1.5px solid var(--ui-color-border);
+    white-space: nowrap;
+    user-select: none;
+  }
+  
+  .ui-input-group__suffix {
+    border-right: none;
+    border-left: 1.5px solid var(--ui-color-border);
+  }
+  
+  /* Error на группе */
+  .ui-input-group--error {
+    border-color: var(--ui-color-danger);
+  }
+  .ui-input-group--error:focus-within {
+    border-color: var(--ui-color-danger);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-color-danger) 30%, transparent);
+  }
+  
+  /* Disabled */
+  .ui-input-group:has(.ui-input:disabled) {
+    background: var(--ui-color-bg-subtle);
+    opacity: 0.7;
+    cursor: not-allowed;
+  }

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кнопки — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Кнопки</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Варианты</h2>
+      <p class="docs-section__desc">Базовый класс <code>ui-btn</code> + модификатор варианта.</p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary">Primary</button>
+        <button class="ui-btn ui-btn--secondary">Secondary</button>
+        <button class="ui-btn ui-btn--ghost">Ghost</button>
+        <button class="ui-btn ui-btn--danger">Danger</button>
+        <button class="ui-btn ui-btn--link">Link</button>
+      </div>
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--primary"&gt;Primary&lt;/button&gt;
+&lt;button class="ui-btn ui-btn--secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="ui-btn ui-btn--ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="ui-btn ui-btn--danger"&gt;Danger&lt;/button&gt;
+&lt;button class="ui-btn ui-btn--link"&gt;Link&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary ui-btn--sm">Small</button>
+        <button class="ui-btn ui-btn--primary">Medium</button>
+        <button class="ui-btn ui-btn--primary ui-btn--lg">Large</button>
+      </div>
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--primary ui-btn--sm"&gt;Small&lt;/button&gt;
+&lt;button class="ui-btn ui-btn--primary"&gt;Medium&lt;/button&gt;
+&lt;button class="ui-btn ui-btn--primary ui-btn--lg"&gt;Large&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Состояния</h2>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary">Обычная</button>
+        <button class="ui-btn ui-btn--primary" disabled>Disabled</button>
+        <button class="ui-btn ui-btn--primary ui-btn--loading">Загрузка</button>
+      </div>
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--primary" disabled&gt;Disabled&lt;/button&gt;
+&lt;button class="ui-btn ui-btn--primary ui-btn--loading"&gt;Загрузка&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Block и иконки</h2>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary ui-btn--block">На всю ширину</button>
+      </div>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary">
+          <span class="ui-btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 3v10M3 8h10"/>
+            </svg>
+          </span>
+          С иконкой
+        </button>
+      </div>
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--primary ui-btn--block"&gt;На всю ширину&lt;/button&gt;
+
+&lt;button class="ui-btn ui-btn--primary"&gt;
+  &lt;span class="ui-btn__icon"&gt;...svg...&lt;/span&gt;
+  С иконкой
+&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Ссылка-кнопка</h2>
+      <div class="docs-demo">
+        <a href="#" class="ui-btn ui-btn--primary">Ссылка как кнопка</a>
+        <a href="#" class="ui-btn ui-btn--link">Просто ссылка</a>
+      </div>
+<pre class="docs-code"><code>&lt;a href="#" class="ui-btn ui-btn--primary"&gt;Ссылка как кнопка&lt;/a&gt;
+&lt;a href="#" class="ui-btn ui-btn--link"&gt;Просто ссылка&lt;/a&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Radio</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">
+        Работает без JS. Все радио в группе имеют одинаковый <code>name</code> —
+        это встроенное поведение HTML, только один может быть выбран.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: flex-start;">
+        <div class="ui-radio-group" role="radiogroup" aria-label="Тариф">
+          <label class="ui-radio">
+            <input type="radio" name="plan" value="free" class="ui-radio__input" checked>
+            <span class="ui-radio__box" aria-hidden="true"></span>
+            <span class="ui-radio__label">Бесплатный</span>
+          </label>
+
+          <label class="ui-radio">
+            <input type="radio" name="plan" value="pro" class="ui-radio__input">
+            <span class="ui-radio__box" aria-hidden="true"></span>
+            <span class="ui-radio__label">Pro</span>
+          </label>
+
+          <label class="ui-radio">
+            <input type="radio" name="plan" value="team" class="ui-radio__input">
+            <span class="ui-radio__box" aria-hidden="true"></span>
+            <span class="ui-radio__label">Команда</span>
+          </label>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-radio-group" role="radiogroup" aria-label="Тариф"&gt;
+  &lt;label class="ui-radio"&gt;
+    &lt;input type="radio" name="plan" value="free" class="ui-radio__input" checked&gt;
+    &lt;span class="ui-radio__box" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;span class="ui-radio__label"&gt;Бесплатный&lt;/span&gt;
+  &lt;/label&gt;
+
+  &lt;label class="ui-radio"&gt;
+    &lt;input type="radio" name="plan" value="pro" class="ui-radio__input"&gt;
+    &lt;span class="ui-radio__box" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;span class="ui-radio__label"&gt;Pro&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Горизонтально</h2>
+      <p class="docs-section__desc">Модификатор <code>--row</code> у группы.</p>
+      <div class="docs-demo">
+        <div class="ui-radio-group ui-radio-group--row" role="radiogroup" aria-label="Размер">
+          <label class="ui-radio">
+            <input type="radio" name="size" value="s" class="ui-radio__input">
+            <span class="ui-radio__box" aria-hidden="true"></span>
+            <span class="ui-radio__label">S</span>
+          </label>
+          <label class="ui-radio">
+            <input type="radio" name="size" value="m" class="ui-radio__input" checked>
+            <span class="ui-radio__box" aria-hidden="true"></span>
+            <span class="ui-radio__label">M</span>
+          </label>
+          <label class="ui-radio">
+            <input type="radio" name="size" value="l" class="ui-radio__input">
+            <span class="ui-radio__box" aria-hidden="true"></span>
+            <span class="ui-radio__label">L</span>
+          </label>
+          <label class="ui-radio">
+            <input type="radio" name="size" value="xl" class="ui-radio__input">
+            <span class="ui-radio__box" aria-hidden="true"></span>
+            <span class="ui-radio__label">XL</span>
+          </label>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-radio-group ui-radio-group--row" role="radiogroup" aria-label="Размер"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: flex-start;">
+        <label class="ui-radio ui-radio--sm">
+          <input type="radio" name="size2" class="ui-radio__input" checked>
+          <span class="ui-radio__box" aria-hidden="true"></span>
+          <span class="ui-radio__label">Small</span>
+        </label>
+        <label class="ui-radio">
+          <input type="radio" name="size2" class="ui-radio__input">
+          <span class="ui-radio__box" aria-hidden="true"></span>
+          <span class="ui-radio__label">Medium</span>
+        </label>
+        <label class="ui-radio ui-radio--lg">
+          <input type="radio" name="size2" class="ui-radio__input">
+          <span class="ui-radio__box" aria-hidden="true"></span>
+          <span class="ui-radio__label">Large</span>
+        </label>
+      </div>
+
+<pre class="docs-code"><code>&lt;label class="ui-radio ui-radio--sm"&gt;...&lt;/label&gt;
+&lt;label class="ui-radio"&gt;...&lt;/label&gt;
+&lt;label class="ui-radio ui-radio--lg"&gt;...&lt;/label&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Состояния</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: flex-start;">
+        <label class="ui-radio">
+          <input type="radio" name="st" class="ui-radio__input">
+          <span class="ui-radio__box" aria-hidden="true"></span>
+          <span class="ui-radio__label">Обычный</span>
+        </label>
+        <label class="ui-radio">
+          <input type="radio" name="st" class="ui-radio__input" checked>
+          <span class="ui-radio__box" aria-hidden="true"></span>
+          <span class="ui-radio__label">Выбран</span>
+        </label>
+        <label class="ui-radio">
+          <input type="radio" name="st" class="ui-radio__input" disabled>
+          <span class="ui-radio__box" aria-hidden="true"></span>
+          <span class="ui-radio__label">Disabled</span>
+        </label>
+        <label class="ui-radio">
+          <input type="radio" name="st" class="ui-radio__input" checked disabled>
+          <span class="ui-radio__box" aria-hidden="true"></span>
+          <span class="ui-radio__label">Checked + Disabled</span>
+        </label>
+      </div>
+
+<pre class="docs-code"><code>&lt;input type="radio" name="st" class="ui-radio__input" disabled&gt;
+&lt;input type="radio" name="st" class="ui-radio__input" checked disabled&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* ============================================================
+   Radio Group — обёртка для группы радиокнопок
+   ============================================================ */
+
+   .ui-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-space-2);
+    font-family: var(--ui-font);
+  }
+  
+  .ui-radio-group--row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--ui-space-4);
+  }
+  
+  /* ============================================================
+     Radio — одиночная радиокнопка
+     Базовый класс: .ui-radio
+     Модификаторы: --sm, --lg
+     ============================================================ */
+  
+  .ui-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ui-space-2);
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--ui-text-md);
+    color: var(--ui-color-text);
+    line-height: 1.4;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Нативный input визуально скрыт, но доступен для a11y и клавиатуры */
+  .ui-radio__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  
+  /* ---------- Круг ---------- */
+  
+  .ui-radio__box {
+    position: relative;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--ui-color-border);
+    border-radius: 50%;
+    background: var(--ui-color-bg);
+    transition:
+      border-color var(--ui-transition),
+      background-color var(--ui-transition),
+      box-shadow var(--ui-transition);
+  }
+  
+  /* Внутренняя точка */
+  .ui-radio__box::after {
+    content: "";
+    position: absolute;
+    inset: 50% 50% 50% 50%;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: #fff;
+    transform: scale(0);
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* ---------- Hover (не выбран, не disabled) ---------- */
+  
+  .ui-radio:hover .ui-radio__input:not(:checked):not(:disabled) ~ .ui-radio__box {
+    border-color: var(--ui-color-primary);
+    background: color-mix(in srgb, var(--ui-color-primary) 8%, var(--ui-color-bg));
+  }
+  
+  /* ---------- Checked ---------- */
+  
+  .ui-radio__input:checked ~ .ui-radio__box {
+    border-color: var(--ui-color-primary);
+    background: linear-gradient(
+      135deg,
+      var(--ui-color-primary),
+      var(--ui-color-primary-hover)
+    );
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--ui-color-primary) 40%, transparent),
+      0 0 12px color-mix(in srgb, var(--ui-color-primary) 45%, transparent);
+  }
+  
+  .ui-radio__input:checked ~ .ui-radio__box::after {
+    transform: scale(1);
+  }
+  
+  /* ---------- Focus ---------- */
+  
+  .ui-radio__input:focus-visible ~ .ui-radio__box {
+    outline: 2px solid var(--ui-color-primary);
+    outline-offset: 2px;
+  }
+  
+  /* ---------- Disabled ---------- */
+  
+  .ui-radio__input:disabled ~ .ui-radio__box,
+  .ui-radio__input:disabled ~ .ui-radio__label {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .ui-radio__input:disabled ~ .ui-radio__box {
+    box-shadow: none;
+  }
+  
+  /* ---------- Размеры ---------- */
+  
+  .ui-radio.ui-radio--sm {
+    font-size: var(--ui-text-sm);
+    gap: var(--ui-space-1);
+  }
+  .ui-radio.ui-radio--sm .ui-radio__box {
+    width: 16px;
+    height: 16px;
+  }
+  .ui-radio.ui-radio--sm .ui-radio__box::after {
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+  }
+  
+  .ui-radio.ui-radio--lg {
+    font-size: var(--ui-text-lg);
+    gap: var(--ui-space-3);
+  }
+  .ui-radio.ui-radio--lg .ui-radio__box {
+    width: 24px;
+    height: 24px;
+  }
+  .ui-radio.ui-radio--lg .ui-radio__box::after {
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+  }
