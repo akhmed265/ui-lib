@@ -1,0 +1,134 @@
+/* ============================================================
+   Progress
+   Базовый класс: .ui-progress
+   Части: __bar, __label, __value
+   Модификаторы: --primary, --success, --warning, --danger,
+                 --sm, --lg, --striped, --animated,
+                 --indeterminate, --loading
+   ============================================================ */
+
+   .ui-progress {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-space-1);
+    width: 100%;
+    font-family: var(--ui-font);
+    font-size: var(--ui-text-sm);
+  }
+  
+  /* ---------- Bar ---------- */
+  
+  .ui-progress__bar {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: var(--ui-color-bg-muted);
+    border-radius: var(--ui-radius-full);
+    overflow: hidden;
+  }
+  
+  /* Заливка */
+  .ui-progress__bar::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--ui-progress-value, 0%);
+    background: var(--ui-color-primary);
+    border-radius: inherit;
+    transition: width 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* ---------- Label + Value ---------- */
+  
+  .ui-progress__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--ui-space-2);
+    color: var(--ui-color-text-muted);
+  }
+  
+  .ui-progress__value {
+    color: var(--ui-color-text);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* ---------- Цвета ---------- */
+  
+  .ui-progress--primary .ui-progress__bar::after { background: var(--ui-color-primary); }
+  .ui-progress--success .ui-progress__bar::after { background: var(--ui-color-success); }
+  .ui-progress--warning .ui-progress__bar::after { background: var(--ui-color-warning); }
+  .ui-progress--danger  .ui-progress__bar::after { background: var(--ui-color-danger); }
+  
+  /* ---------- Размеры ---------- */
+  
+  .ui-progress--sm .ui-progress__bar {
+    height: 4px;
+    border-radius: 2px;
+  }
+  
+  .ui-progress--lg .ui-progress__bar {
+    height: 12px;
+  }
+  
+  .ui-progress--lg .ui-progress__bar::after {
+    border-radius: var(--ui-radius-full);
+  }
+  
+  /* ---------- Striped ---------- */
+  
+  .ui-progress--striped .ui-progress__bar::after {
+    background-image: linear-gradient(
+      45deg,
+      rgb(255 255 255 / 0.25) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgb(255 255 255 / 0.25) 50%,
+      rgb(255 255 255 / 0.25) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 16px 16px;
+  }
+  
+  /* ---------- Animated ---------- */
+  
+  .ui-progress--animated .ui-progress__bar::after {
+    animation: ui-progress-stripes 1s linear infinite;
+  }
+  
+  @keyframes ui-progress-stripes {
+    from { background-position: 16px 0; }
+    to   { background-position: 0 0; }
+  }
+  
+  /* ---------- Indeterminate ---------- */
+  
+  .ui-progress--indeterminate .ui-progress__bar::after {
+    width: 35%;
+    transition: none;
+    animation: ui-progress-indeterminate 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  
+  @keyframes ui-progress-indeterminate {
+    0%   { left: -35%; }
+    100% { left: 100%; }
+  }
+  
+  /* ---------- Loading (пульсация) ---------- */
+  
+  .ui-progress--loading .ui-progress__bar::after {
+    animation: ui-progress-pulse 1.2s ease-in-out infinite;
+  }
+  
+  @keyframes ui-progress-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.5; }
+  }
+  
+  /* Конфликт: indeterminate + loading → приоритет у indeterminate */
+  .ui-progress--indeterminate.ui-progress--loading .ui-progress__bar::after {
+    animation: ui-progress-indeterminate 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }

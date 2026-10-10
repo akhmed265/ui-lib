@@ -1,0 +1,142 @@
+/* ============================================================
+   Badge
+   Базовый класс: .ui-badge
+   Цвета: --primary, --success, --warning, --danger, --neutral
+   Стили: solid (по умолчанию), --soft, --outline
+   Размеры: --sm, --lg
+   Форма: --square (по умолчанию pill)
+   Dot: --dot (в углу .ui-badge-host)
+        --dot-empty (без числа)
+   Пульс: --pulse
+   ============================================================ */
+
+   .ui-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ui-space-1);
+  
+    padding: 2px var(--ui-space-2);
+    font-family: var(--ui-font);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    vertical-align: middle;
+  
+    color: #fff;
+    background: var(--ui-color-text-muted);
+    border-radius: var(--ui-radius-full);
+  }
+  
+  /* ---------- Цвета (solid) ---------- */
+  
+  .ui-badge--neutral  { background: var(--ui-color-text-muted); color: #fff; }
+  .ui-badge--primary  { background: var(--ui-color-primary); color: #fff; }
+  .ui-badge--success  { background: var(--ui-color-success); color: #fff; }
+  .ui-badge--warning  { background: var(--ui-color-warning); color: #fff; }
+  .ui-badge--danger   { background: var(--ui-color-danger); color: #fff; }
+  
+  /* ---------- Soft ---------- */
+  
+  .ui-badge--soft.ui-badge--neutral {
+    color: var(--ui-color-text-muted);
+    background: color-mix(in srgb, var(--ui-color-text-muted) 15%, var(--ui-color-bg));
+  }
+  .ui-badge--soft.ui-badge--primary {
+    color: var(--ui-color-primary);
+    background: color-mix(in srgb, var(--ui-color-primary) 15%, var(--ui-color-bg));
+  }
+  .ui-badge--soft.ui-badge--success {
+    color: var(--ui-color-success);
+    background: color-mix(in srgb, var(--ui-color-success) 15%, var(--ui-color-bg));
+  }
+  .ui-badge--soft.ui-badge--warning {
+    color: var(--ui-color-warning);
+    background: color-mix(in srgb, var(--ui-color-warning) 18%, var(--ui-color-bg));
+  }
+  .ui-badge--soft.ui-badge--danger {
+    color: var(--ui-color-danger);
+    background: color-mix(in srgb, var(--ui-color-danger) 15%, var(--ui-color-bg));
+  }
+  
+  /* ---------- Outline ---------- */
+  
+  .ui-badge--outline {
+    background: transparent;
+    border: 1.5px solid currentColor;
+  }
+  .ui-badge--outline.ui-badge--neutral  { color: var(--ui-color-text-muted); }
+  .ui-badge--outline.ui-badge--primary  { color: var(--ui-color-primary); }
+  .ui-badge--outline.ui-badge--success  { color: var(--ui-color-success); }
+  .ui-badge--outline.ui-badge--warning  { color: var(--ui-color-warning); }
+  .ui-badge--outline.ui-badge--danger   { color: var(--ui-color-danger); }
+  
+  /* ---------- Размеры ---------- */
+  
+  .ui-badge--sm {
+    padding: 1px var(--ui-space-1);
+    font-size: 10px;
+  }
+  
+  .ui-badge--lg {
+    padding: var(--ui-space-1) var(--ui-space-3);
+    font-size: 14px;
+  }
+  
+  /* ---------- Форма ---------- */
+  
+  .ui-badge--square {
+    border-radius: var(--ui-radius-sm);
+  }
+  
+  /* ============================================================
+     Dot — badge в углу родителя
+     ============================================================ */
+  
+  .ui-badge-host {
+    position: relative;
+    display: inline-flex;
+  }
+  
+  .ui-badge--dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(40%, -40%);
+    min-width: 18px;
+    height: 18px;
+    padding: 0 var(--ui-space-1);
+    font-size: 10px;
+    line-height: 1;
+    border-radius: var(--ui-radius-full);
+    border: 2px solid var(--ui-color-bg);
+    box-sizing: content-box;
+  }
+  
+  .ui-badge--dot-empty {
+    min-width: 8px;
+    height: 8px;
+    padding: 0;
+    border-width: 1.5px;
+  }
+  
+  /* ---------- Пульсация ---------- */
+  
+  .ui-badge--pulse::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: inherit;
+    opacity: 0.6;
+    animation: ui-badge-pulse 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    z-index: -1;
+  }
+  
+  @keyframes ui-badge-pulse {
+    0%   { transform: scale(1);   opacity: 0.6; }
+    70%  { transform: scale(2.2); opacity: 0; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }

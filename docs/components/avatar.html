@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avatar — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Avatar</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <!-- Базовый -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">
+        Картинка или инициалы. С <code>data-name</code> и классом <code>--initials</code>
+        инициалы и цвет генерируются автоматически.
+      </p>
+      <div class="docs-demo">
+        <span class="ui-avatar ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--initials" data-name="Анна Сидорова"></span>
+        <span class="ui-avatar ui-avatar--initials" data-name="Максим"></span>
+        <span class="ui-avatar ui-avatar--initials" data-name="Ольга Кузнецова"></span>
+        <span class="ui-avatar ui-avatar--initials" data-name="Дмитрий Волков"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-avatar ui-avatar--initials" data-name="Иван Петров"&gt;&lt;/span&gt;</code></pre>
+    </section>
+
+    <!-- Размеры -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo">
+        <span class="ui-avatar ui-avatar--xs ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--sm ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--xl ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--2xl ui-avatar--initials" data-name="Иван Петров"></span>
+      </div>
+    </section>
+
+    <!-- Формы -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Формы</h2>
+      <div class="docs-demo">
+        <span class="ui-avatar ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--square ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--rounded ui-avatar--initials" data-name="Иван Петров"></span>
+      </div>
+    </section>
+
+    <!-- Свой цвет -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Свой цвет</h2>
+      <p class="docs-section__desc">
+        Переопределяется через <code>--ui-avatar-bg</code>.
+        Авто-цвет не перезапишет заданный вручную.
+      </p>
+      <div class="docs-demo">
+        <span class="ui-avatar ui-avatar--initials" data-name="Иван Петров" style="--ui-avatar-bg: #111827;"></span>
+        <span class="ui-avatar ui-avatar--initials" data-name="Иван Петров" style="--ui-avatar-bg: #dc2626;"></span>
+        <span class="ui-avatar ui-avatar--initials" data-name="Иван Петров" style="--ui-avatar-bg: linear-gradient(135deg, #f09433, #dc2743);"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-avatar ui-avatar--initials" data-name="Иван Петров"
+      style="--ui-avatar-bg: #dc2626;"&gt;&lt;/span&gt;</code></pre>
+    </section>
+
+    <!-- Статус -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Статус</h2>
+      <div class="docs-demo">
+        <span class="ui-avatar ui-avatar--status-online ui-avatar--initials" data-name="Онлайн"></span>
+        <span class="ui-avatar ui-avatar--status-away ui-avatar--initials" data-name="Отошёл"></span>
+        <span class="ui-avatar ui-avatar--status-busy ui-avatar--initials" data-name="Занят"></span>
+        <span class="ui-avatar ui-avatar--status-offline ui-avatar--initials" data-name="Офлайн"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-avatar ui-avatar--status-online"&gt;...&lt;/span&gt;</code></pre>
+    </section>
+
+    <!-- Verified -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Verified</h2>
+      <div class="docs-demo">
+        <span class="ui-avatar ui-avatar--verified ui-avatar--initials" data-name="Иван Петров"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--verified ui-avatar--initials" data-name="Анна Сидорова"></span>
+      </div>
+    </section>
+
+    <!-- Прогресс-кольцо -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Прогресс-кольцо (опыт до уровня)</h2>
+      <p class="docs-section__desc">
+        Значение от 0 до 100 задаётся через <code>--ui-avatar-progress</code>.
+        Цвет кольца — <code>--ui-avatar-ring-color</code>.
+      </p>
+      <div class="docs-demo" style="gap: 24px;">
+        <span class="ui-avatar ui-avatar--lg ui-avatar--ring ui-avatar--initials"
+              data-name="Иван Петров" style="--ui-avatar-progress: 20;"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--ring ui-avatar--initials"
+              data-name="Анна Сидорова" style="--ui-avatar-progress: 55;"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--ring ui-avatar--initials"
+              data-name="Максим Орлов" style="--ui-avatar-progress: 90; --ui-avatar-ring-color: #16a34a;"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--ring ui-avatar--initials"
+              data-name="Ольга" style="--ui-avatar-progress: 100; --ui-avatar-ring-color: #f59e0b;"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-avatar ui-avatar--ring"
+      style="--ui-avatar-progress: 65;"&gt;
+  &lt;svg class="ui-avatar__ring" viewBox="0 0 100 100"&gt;
+    &lt;circle class="ui-avatar__ring-bg" cx="50" cy="50" r="46"/&gt;
+    &lt;circle class="ui-avatar__ring-fg" cx="50" cy="50" r="46"/&gt;
+  &lt;/svg&gt;
+  &lt;img class="ui-avatar__img" src="..." alt=""&gt;
+&lt;/span&gt;</code></pre>
+    </section>
+
+    <!-- Story -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Story</h2>
+      <p class="docs-section__desc">
+        Градиентное кольцо как в соцсетях. <code>--story-unread</code> — толще,
+        <code>--story-seen</code> — серое (просмотрено).
+      </p>
+      <div class="docs-demo" style="gap: 24px;">
+        <span class="ui-avatar ui-avatar--lg ui-avatar--story-unread ui-avatar--initials" data-name="Анна"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--story ui-avatar--initials" data-name="Иван"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--story-seen ui-avatar--initials" data-name="Максим"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-avatar ui-avatar--story-unread"&gt;...&lt;/span&gt;
+&lt;span class="ui-avatar ui-avatar--story"&gt;...&lt;/span&gt;
+&lt;span class="ui-avatar ui-avatar--story-seen"&gt;...&lt;/span&gt;</code></pre>
+    </section>
+
+    <!-- Live -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Live</h2>
+      <p class="docs-section__desc">
+        Пульсирующая точка + метка LIVE. <code>--live</code> — только точка,
+        <code>--live-label</code> — точка + подпись под аватаром.
+      </p>
+      <div class="docs-demo" style="gap: 40px; padding-bottom: 24px;">
+        <span class="ui-avatar ui-avatar--lg ui-avatar--live ui-avatar--initials" data-name="Стример"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--live ui-avatar--live-label ui-avatar--initials" data-name="Стример"></span>
+        <span class="ui-avatar ui-avatar--lg ui-avatar--live ui-avatar--live-label ui-avatar--initials" data-name="Анна" style="--ui-avatar-bg: #8b5cf6;"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-avatar ui-avatar--live ui-avatar--live-label" data-name="Стример"&gt;&lt;/span&gt;</code></pre>
+    </section>
+
+    <!-- Группа -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Группа</h2>
+      <div class="docs-demo">
+        <span class="ui-avatar-group">
+          <span class="ui-avatar ui-avatar--initials" data-name="Иван Петров"></span>
+          <span class="ui-avatar ui-avatar--initials" data-name="Анна Сидорова"></span>
+          <span class="ui-avatar ui-avatar--initials" data-name="Максим Орлов"></span>
+          <span class="ui-avatar ui-avatar--more">+5</span>
+        </span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-avatar-group"&gt;
+  &lt;span class="ui-avatar"&gt;...&lt;/span&gt;
+  &lt;span class="ui-avatar"&gt;...&lt;/span&gt;
+  &lt;span class="ui-avatar ui-avatar--more"&gt;+5&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+    </section>
+
+    <!-- Комбинации -->
+    <section class="docs-section">
+      <h2 class="docs-section__title">Комбинации</h2>
+      <div class="docs-demo" style="gap: 32px;">
+        <span class="ui-avatar ui-avatar--xl ui-avatar--ring ui-avatar--verified ui-avatar--initials"
+              data-name="Иван Петров" style="--ui-avatar-progress: 70;"></span>
+        <span class="ui-avatar ui-avatar--xl ui-avatar--story-unread ui-avatar--status-online ui-avatar--initials"
+              data-name="Анна Сидорова"></span>
+        <span class="ui-avatar ui-avatar--xl ui-avatar--live ui-avatar--live-label ui-avatar--initials"
+              data-name="Стример"></span>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="../components/avatar/avatar.js" defer></script>
+<script src="../assets/sidebar.js" defer></script>
+</body>
+</html>

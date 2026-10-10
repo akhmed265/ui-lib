@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breadcrumbs — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Breadcrumbs</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовые</h2>
+      <p class="docs-section__desc">
+        Семантика: <code>&lt;nav&gt;</code> + <code>&lt;ol&gt;</code>.
+        Текущий элемент — <code>aria-current="page"</code>.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <nav class="ui-breadcrumbs" aria-label="Хлебные крошки">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item">
+              <a href="#" class="ui-breadcrumbs__link">Главная</a>
+            </li>
+            <li class="ui-breadcrumbs__item">
+              <a href="#" class="ui-breadcrumbs__link">Каталог</a>
+            </li>
+            <li class="ui-breadcrumbs__item">
+              <a href="#" class="ui-breadcrumbs__link">Электроника</a>
+            </li>
+            <li class="ui-breadcrumbs__item">
+              <span class="ui-breadcrumbs__current" aria-current="page">Смартфоны</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+<pre class="docs-code"><code>&lt;nav class="ui-breadcrumbs" aria-label="Хлебные крошки"&gt;
+  &lt;ol class="ui-breadcrumbs__list"&gt;
+    &lt;li class="ui-breadcrumbs__item"&gt;
+      &lt;a href="/" class="ui-breadcrumbs__link"&gt;Главная&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="ui-breadcrumbs__item"&gt;
+      &lt;a href="/catalog" class="ui-breadcrumbs__link"&gt;Каталог&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="ui-breadcrumbs__item"&gt;
+      &lt;span class="ui-breadcrumbs__current" aria-current="page"&gt;Смартфоны&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Стрелка</h2>
+      <p class="docs-section__desc">Модификатор <code>--arrow</code> меняет разделитель на <code>›</code>.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <nav class="ui-breadcrumbs ui-breadcrumbs--arrow" aria-label="Навигация">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item">
+              <a href="#" class="ui-breadcrumbs__link">Главная</a>
+            </li>
+            <li class="ui-breadcrumbs__item">
+              <a href="#" class="ui-breadcrumbs__link">Каталог</a>
+            </li>
+            <li class="ui-breadcrumbs__item">
+              <span class="ui-breadcrumbs__current" aria-current="page">Смартфоны</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+<pre class="docs-code"><code>&lt;nav class="ui-breadcrumbs ui-breadcrumbs--arrow"&gt;...&lt;/nav&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 20px;">
+        <nav class="ui-breadcrumbs ui-breadcrumbs--sm ui-breadcrumbs--arrow">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Главная</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Каталог</a></li>
+            <li class="ui-breadcrumbs__item"><span class="ui-breadcrumbs__current">Small</span></li>
+          </ol>
+        </nav>
+
+        <nav class="ui-breadcrumbs ui-breadcrumbs--arrow">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Главная</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Каталог</a></li>
+            <li class="ui-breadcrumbs__item"><span class="ui-breadcrumbs__current">Medium</span></li>
+          </ol>
+        </nav>
+
+        <nav class="ui-breadcrumbs ui-breadcrumbs--lg ui-breadcrumbs--arrow">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Главная</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Каталог</a></li>
+            <li class="ui-breadcrumbs__item"><span class="ui-breadcrumbs__current">Large</span></li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Compact</h2>
+      <p class="docs-section__desc">Меньше отступов вокруг разделителя.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <nav class="ui-breadcrumbs ui-breadcrumbs--compact ui-breadcrumbs--arrow">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Главная</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Каталог</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Электроника</a></li>
+            <li class="ui-breadcrumbs__item"><span class="ui-breadcrumbs__current">Смартфоны</span></li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Pill</h2>
+      <p class="docs-section__desc">Элементы в виде «пилюль». Активный — залит primary.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <nav class="ui-breadcrumbs ui-breadcrumbs--pill" aria-label="Навигация">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Главная</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Каталог</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Электроника</a></li>
+            <li class="ui-breadcrumbs__item">
+              <span class="ui-breadcrumbs__current" aria-current="page">Смартфоны</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">С иконкой</h2>
+      <p class="docs-section__desc">
+        Первый элемент с иконкой. Текст для скринридера — через
+        <code>ui-visually-hidden</code>.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch;">
+        <nav class="ui-breadcrumbs ui-breadcrumbs--arrow" aria-label="Навигация">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item">
+              <a href="#" class="ui-breadcrumbs__link">
+                <span class="ui-breadcrumbs__icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16">
+                    <path d="M2 7l6-5 6 5v7a1 1 0 0 1-1 1h-3v-5H6v5H3a1 1 0 0 1-1-1z"/>
+                  </svg>
+                </span>
+                <span class="ui-visually-hidden">Главная</span>
+              </a>
+            </li>
+            <li class="ui-breadcrumbs__item">
+              <a href="#" class="ui-breadcrumbs__link">Каталог</a>
+            </li>
+            <li class="ui-breadcrumbs__item">
+              <span class="ui-breadcrumbs__current">Смартфоны</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Длинная цепочка</h2>
+      <p class="docs-section__desc">При нехватке места — переносится на новую строку.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 360px;">
+        <nav class="ui-breadcrumbs ui-breadcrumbs--arrow">
+          <ol class="ui-breadcrumbs__list">
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Главная</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Каталог</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Электроника</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Смартфоны</a></li>
+            <li class="ui-breadcrumbs__item"><a href="#" class="ui-breadcrumbs__link">Apple</a></li>
+            <li class="ui-breadcrumbs__item">
+              <span class="ui-breadcrumbs__current">iPhone 15 Pro</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js" defer></script>
+</body>
+</html>

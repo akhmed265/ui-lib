@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spinner — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Spinner</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Варианты</h2>
+      <p class="docs-section__desc">
+        4 варианта: circle (по умолчанию), dots, pulse, ring.
+        У dots внутри три <code>&lt;i&gt;</code> — волна слева направо.
+      </p>
+      <div class="docs-demo" style="gap: 32px; align-items: center;">
+        <span class="ui-spinner ui-spinner--primary" role="status" aria-label="Загрузка"></span>
+
+        <span class="ui-spinner ui-spinner--dots ui-spinner--primary" role="status" aria-label="Загрузка">
+          <i></i><i></i><i></i>
+        </span>
+
+        <span class="ui-spinner ui-spinner--pulse ui-spinner--primary" role="status" aria-label="Загрузка"></span>
+
+        <span class="ui-spinner ui-spinner--ring ui-spinner--primary" role="status" aria-label="Загрузка"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-spinner"&gt;&lt;/span&gt;                    &lt;!-- circle --&gt;
+
+&lt;span class="ui-spinner ui-spinner--dots"&gt;        &lt;!-- dots --&gt;
+  &lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;
+&lt;/span&gt;
+
+&lt;span class="ui-spinner ui-spinner--pulse"&gt;&lt;/span&gt;    &lt;!-- pulse --&gt;
+&lt;span class="ui-spinner ui-spinner--ring"&gt;&lt;/span&gt;     &lt;!-- ring --&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры (circle)</h2>
+      <div class="docs-demo" style="align-items: center; gap: 32px;">
+        <span class="ui-spinner ui-spinner--xs ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--sm ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--lg ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--xl ui-spinner--primary"></span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-spinner ui-spinner--xs"&gt;&lt;/span&gt;
+&lt;span class="ui-spinner ui-spinner--sm"&gt;&lt;/span&gt;
+&lt;span class="ui-spinner"&gt;&lt;/span&gt;
+&lt;span class="ui-spinner ui-spinner--lg"&gt;&lt;/span&gt;
+&lt;span class="ui-spinner ui-spinner--xl"&gt;&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры (dots)</h2>
+      <div class="docs-demo" style="align-items: center; gap: 40px;">
+        <span class="ui-spinner ui-spinner--dots ui-spinner--xs ui-spinner--primary">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="ui-spinner ui-spinner--dots ui-spinner--sm ui-spinner--primary">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="ui-spinner ui-spinner--dots ui-spinner--primary">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="ui-spinner ui-spinner--dots ui-spinner--lg ui-spinner--primary">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="ui-spinner ui-spinner--dots ui-spinner--xl ui-spinner--primary">
+          <i></i><i></i><i></i>
+        </span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-spinner ui-spinner--dots ui-spinner--xs"&gt;
+  &lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;
+&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Цвета</h2>
+      <div class="docs-demo" style="gap: 32px; align-items: center;">
+        <span class="ui-spinner ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--success"></span>
+        <span class="ui-spinner ui-spinner--warning"></span>
+        <span class="ui-spinner ui-spinner--danger"></span>
+
+        <span class="ui-spinner ui-spinner--dots ui-spinner--success">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="ui-spinner ui-spinner--dots ui-spinner--warning">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="ui-spinner ui-spinner--dots ui-spinner--danger">
+          <i></i><i></i><i></i>
+        </span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-spinner ui-spinner--success"&gt;&lt;/span&gt;
+&lt;span class="ui-spinner ui-spinner--dots ui-spinner--danger"&gt;
+  &lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;
+&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Все варианты × размеры</h2>
+      <div class="docs-demo" style="gap: 40px; align-items: center; flex-wrap: wrap;">
+        <!-- ring -->
+        <span class="ui-spinner ui-spinner--ring ui-spinner--xs ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--ring ui-spinner--sm ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--ring ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--ring ui-spinner--lg ui-spinner--primary"></span>
+        <span class="ui-spinner ui-spinner--ring ui-spinner--xl ui-spinner--primary"></span>
+
+        <!-- pulse -->
+        <span class="ui-spinner ui-spinner--pulse ui-spinner--xs ui-spinner--danger"></span>
+        <span class="ui-spinner ui-spinner--pulse ui-spinner--sm ui-spinner--danger"></span>
+        <span class="ui-spinner ui-spinner--pulse ui-spinner--danger"></span>
+        <span class="ui-spinner ui-spinner--pulse ui-spinner--lg ui-spinner--danger"></span>
+        <span class="ui-spinner ui-spinner--pulse ui-spinner--xl ui-spinner--danger"></span>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">В кнопке</h2>
+      <p class="docs-section__desc">
+        Спиннер хорошо встраивается в flex-кнопку.
+      </p>
+      <div class="docs-demo">
+        <button class="ui-btn ui-btn--primary" disabled>
+          <span class="ui-spinner ui-spinner--sm"></span>
+          Сохранение...
+        </button>
+
+        <button class="ui-btn ui-btn--secondary" disabled>
+          <span class="ui-spinner ui-spinner--dots ui-spinner--sm ui-spinner--primary">
+            <i></i><i></i><i></i>
+          </span>
+          Загрузка
+        </button>
+
+        <button class="ui-btn ui-btn--primary" disabled>
+          <span class="ui-spinner ui-spinner--ring ui-spinner--sm"></span>
+          Обработка
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--primary" disabled&gt;
+  &lt;span class="ui-spinner ui-spinner--sm"&gt;&lt;/span&gt;
+  Сохранение...
+&lt;/button&gt;
+
+&lt;button class="ui-btn ui-btn--secondary" disabled&gt;
+  &lt;span class="ui-spinner ui-spinner--dots ui-spinner--sm ui-spinner--primary"&gt;
+    &lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  Загрузка
+&lt;/button&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Overlay</h2>
+      <p class="docs-section__desc">
+        <code>.ui-spinner-overlay</code> — спиннер поверх блока.
+        Родитель должен иметь <code>position: relative</code>.
+      </p>
+      <div class="docs-demo" style="gap: 24px; flex-wrap: wrap;">
+        <div class="ui-card" style="position: relative; width: 260px;">
+          <div class="ui-card__body">
+            <h3 class="ui-card__title">Загрузка данных</h3>
+            <p style="margin: 8px 0 0; color: var(--ui-color-text-muted);">
+              Этот блок загружается.
+            </p>
+          </div>
+          <div class="ui-spinner-overlay">
+            <span class="ui-spinner ui-spinner--lg ui-spinner--primary"></span>
+          </div>
+        </div>
+
+        <div class="ui-card" style="position: relative; width: 260px;">
+          <div class="ui-card__body">
+            <h3 class="ui-card__title">Ring-вариант</h3>
+            <p style="margin: 8px 0 0; color: var(--ui-color-text-muted);">
+              С кольцевым спиннером.
+            </p>
+          </div>
+          <div class="ui-spinner-overlay">
+            <span class="ui-spinner ui-spinner--ring ui-spinner--lg ui-spinner--primary"></span>
+          </div>
+        </div>
+
+        <div class="ui-card" style="position: relative; width: 260px;">
+          <div class="ui-card__body">
+            <h3 class="ui-card__title">Dots-вариант</h3>
+            <p style="margin: 8px 0 0; color: var(--ui-color-text-muted);">
+              С волной из точек.
+            </p>
+          </div>
+          <div class="ui-spinner-overlay">
+            <span class="ui-spinner ui-spinner--dots ui-spinner--lg ui-spinner--primary">
+              <i></i><i></i><i></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-card" style="position: relative;"&gt;
+  ...
+  &lt;div class="ui-spinner-overlay"&gt;
+    &lt;span class="ui-spinner ui-spinner--lg ui-spinner--primary"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js" defer></script>
+</body>
+</html>

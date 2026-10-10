@@ -1,0 +1,178 @@
+/* ============================================================
+   Spinner
+   Базовый класс: .ui-spinner
+   Варианты: circle (по умолчанию), --dots, --pulse, --ring
+   Размеры: --xs, --sm, --lg, --xl
+   Цвета: --primary, --success, --warning, --danger
+   Overlay: .ui-spinner-overlay
+   ============================================================ */
+
+   .ui-spinner {
+    --ui-spinner-size: 24px;
+    --ui-spinner-color: currentColor;
+    --ui-spinner-thickness: 2.5px;
+  
+    display: inline-block;
+    width: var(--ui-spinner-size);
+    height: var(--ui-spinner-size);
+    flex-shrink: 0;
+    vertical-align: middle;
+    color: var(--ui-spinner-color);
+  }
+  
+  /* ============================================================
+     Circle (по умолчанию)
+     ============================================================ */
+  
+  .ui-spinner:not([class*="ui-spinner--dots"]):not([class*="ui-spinner--pulse"]):not([class*="ui-spinner--ring"]) {
+    border: var(--ui-spinner-thickness) solid
+      color-mix(in srgb, currentColor 20%, transparent);
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: ui-spinner-rotate 700ms linear infinite;
+  }
+  
+  @keyframes ui-spinner-rotate {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* ============================================================
+   Dots — три точки с волной
+   Разметка: <span class="ui-spinner ui-spinner--dots">
+               <i></i><i></i><i></i>
+             </span>
+   ============================================================ */
+
+.ui-spinner--dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--ui-spinner-size) / 6);
+  width: var(--ui-spinner-size);
+  height: var(--ui-spinner-size);
+  border: none;
+  background: none;
+  animation: none;
+}
+
+.ui-spinner--dots > i {
+  display: block;
+  width: calc(var(--ui-spinner-size) / 4);
+  height: calc(var(--ui-spinner-size) / 4);
+  border-radius: 50%;
+  background: currentColor;
+  animation: ui-spinner-dots 1.2s ease-in-out infinite;
+}
+
+.ui-spinner--dots > i:nth-child(1) { animation-delay: 0s; }
+.ui-spinner--dots > i:nth-child(2) { animation-delay: 0.15s; }
+.ui-spinner--dots > i:nth-child(3) { animation-delay: 0.3s; }
+
+/* Волна: точка подпрыгивает (scale + opacity) в свой момент времени */
+@keyframes ui-spinner-dots {
+  0%, 60%, 100% {
+    transform: scale(0.6);
+    opacity: 0.35;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+  
+  /* ============================================================
+     Pulse — пульсирующий круг
+     ============================================================ */
+  
+  .ui-spinner--pulse {
+    position: relative;
+    border: none;
+    background: none;
+    animation: none;
+  }
+  
+  .ui-spinner--pulse::before,
+  .ui-spinner--pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: currentColor;
+    animation: ui-spinner-pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .ui-spinner--pulse::after {
+    animation-delay: 0.7s;
+  }
+  
+  @keyframes ui-spinner-pulse {
+    0% {
+      transform: scale(0.3);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  
+  /* ============================================================
+     Ring — тонкое кольцо с градиентом
+     ============================================================ */
+  
+  .ui-spinner--ring {
+    border: none;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 60deg,
+      currentColor 360deg
+    );
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - var(--ui-spinner-thickness)),
+      #000 calc(100% - var(--ui-spinner-thickness))
+    );
+            mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - var(--ui-spinner-thickness)),
+      #000 calc(100% - var(--ui-spinner-thickness))
+    );
+    animation: ui-spinner-rotate 900ms linear infinite;
+  }
+  
+  /* ============================================================
+     Размеры
+     ============================================================ */
+  
+  .ui-spinner--xs { --ui-spinner-size: 12px; --ui-spinner-thickness: 1.5px; }
+  .ui-spinner--sm { --ui-spinner-size: 16px; --ui-spinner-thickness: 2px; }
+  .ui-spinner--lg { --ui-spinner-size: 40px; --ui-spinner-thickness: 3.5px; }
+  .ui-spinner--xl { --ui-spinner-size: 64px; --ui-spinner-thickness: 4.5px; }
+  
+  /* ============================================================
+     Цвета
+     ============================================================ */
+  
+  .ui-spinner--primary { --ui-spinner-color: var(--ui-color-primary); }
+  .ui-spinner--success { --ui-spinner-color: var(--ui-color-success); }
+  .ui-spinner--warning { --ui-spinner-color: var(--ui-color-warning); }
+  .ui-spinner--danger  { --ui-spinner-color: var(--ui-color-danger); }
+  
+  /* ============================================================
+     Overlay — спиннер поверх родителя
+     ============================================================ */
+  
+  .ui-spinner-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--ui-color-bg) 70%, transparent);
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+    border-radius: inherit;
+    z-index: 10;
+  }

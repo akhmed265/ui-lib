@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badge — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Badge</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Solid (по умолчанию)</h2>
+      <p class="docs-section__desc">Заливка цветом, белый текст.</p>
+      <div class="docs-demo">
+        <span class="ui-badge ui-badge--neutral">Neutral</span>
+        <span class="ui-badge ui-badge--primary">Primary</span>
+        <span class="ui-badge ui-badge--success">Success</span>
+        <span class="ui-badge ui-badge--warning">Warning</span>
+        <span class="ui-badge ui-badge--danger">Danger</span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-badge ui-badge--success"&gt;Success&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Soft</h2>
+      <p class="docs-section__desc">Лёгкий фон, цветной текст. Мягче по восприятию.</p>
+      <div class="docs-demo">
+        <span class="ui-badge ui-badge--soft ui-badge--neutral">Neutral</span>
+        <span class="ui-badge ui-badge--soft ui-badge--primary">Primary</span>
+        <span class="ui-badge ui-badge--soft ui-badge--success">Success</span>
+        <span class="ui-badge ui-badge--soft ui-badge--warning">Warning</span>
+        <span class="ui-badge ui-badge--soft ui-badge--danger">Danger</span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-badge ui-badge--soft ui-badge--success"&gt;Success&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Outline</h2>
+      <p class="docs-section__desc">Прозрачный фон, цветная рамка и текст.</p>
+      <div class="docs-demo">
+        <span class="ui-badge ui-badge--outline ui-badge--neutral">Neutral</span>
+        <span class="ui-badge ui-badge--outline ui-badge--primary">Primary</span>
+        <span class="ui-badge ui-badge--outline ui-badge--success">Success</span>
+        <span class="ui-badge ui-badge--outline ui-badge--warning">Warning</span>
+        <span class="ui-badge ui-badge--outline ui-badge--danger">Danger</span>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="align-items: center;">
+        <span class="ui-badge ui-badge--primary ui-badge--sm">Small</span>
+        <span class="ui-badge ui-badge--primary">Medium</span>
+        <span class="ui-badge ui-badge--primary ui-badge--lg">Large</span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-badge ui-badge--primary ui-badge--sm"&gt;Small&lt;/span&gt;
+&lt;span class="ui-badge ui-badge--primary"&gt;Medium&lt;/span&gt;
+&lt;span class="ui-badge ui-badge--primary ui-badge--lg"&gt;Large&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Square</h2>
+      <p class="docs-section__desc">Скруглённый квадрат вместо pill.</p>
+      <div class="docs-demo">
+        <span class="ui-badge ui-badge--primary ui-badge--square">v1.0</span>
+        <span class="ui-badge ui-badge--success ui-badge--square">New</span>
+        <span class="ui-badge ui-badge--danger ui-badge--square">Beta</span>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-badge ui-badge--primary ui-badge--square"&gt;v1.0&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Dot (счётчик на элементе)</h2>
+      <p class="docs-section__desc">
+        Родитель получает класс <code>ui-badge-host</code>, badge — <code>--dot</code>.
+        Кружок встаёт в правый верхний угол.
+      </p>
+      <div class="docs-demo" style="gap: 32px;">
+        <button class="ui-btn ui-btn--secondary ui-badge-host">
+          Уведомления
+          <span class="ui-badge ui-badge--dot ui-badge--danger">3</span>
+        </button>
+
+        <button class="ui-btn ui-btn--secondary ui-badge-host">
+          Сообщения
+          <span class="ui-badge ui-badge--dot ui-badge--primary">12</span>
+        </button>
+
+        <button class="ui-btn ui-btn--ghost ui-badge-host" style="font-size: 24px; padding: 6px 10px;">
+          🔔
+          <span class="ui-badge ui-badge--dot ui-badge--danger">99+</span>
+        </button>
+
+        <button class="ui-btn ui-btn--ghost ui-badge-host" style="font-size: 24px; padding: 6px 10px;">
+          ✉️
+          <span class="ui-badge ui-badge--dot ui-badge--dot-empty ui-badge--success"></span>
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;button class="ui-btn ui-btn--secondary ui-badge-host"&gt;
+  Уведомления
+  &lt;span class="ui-badge ui-badge--dot ui-badge--danger"&gt;3&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Пустой индикатор (без числа) --&gt;
+&lt;span class="ui-badge ui-badge--dot ui-badge--dot-empty ui-badge--success"&gt;&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Pulse</h2>
+      <p class="docs-section__desc">Пульсирующее свечение — для привлечения внимания.</p>
+      <div class="docs-demo" style="gap: 32px;">
+        <span class="ui-badge ui-badge--danger ui-badge--pulse">Live</span>
+
+        <button class="ui-btn ui-btn--secondary ui-badge-host">
+          Запись
+          <span class="ui-badge ui-badge--dot ui-badge--danger ui-badge--pulse">●</span>
+        </button>
+      </div>
+
+<pre class="docs-code"><code>&lt;span class="ui-badge ui-badge--danger ui-badge--pulse"&gt;Live&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">В тексте</h2>
+      <p class="docs-section__desc">Badge хорошо смотрится рядом с текстом или в заголовках.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+        <p style="margin: 0;">
+          Статус заказа: <span class="ui-badge ui-badge--success">Доставлен</span>
+        </p>
+        <p style="margin: 0;">
+          Новые функции в <span class="ui-badge ui-badge--primary ui-badge--square">v0.2</span>
+        </p>
+        <h3 style="margin: 0; display: flex; align-items: center; gap: 8px;">
+          Задачи
+          <span class="ui-badge ui-badge--soft ui-badge--danger">5</span>
+        </h3>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="../assets/sidebar.js" defer></script>
+</body>
+</html>

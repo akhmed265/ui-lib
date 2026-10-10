@@ -24,6 +24,15 @@
   --ui-color-danger: #dc2626;
   --ui-color-danger-hover: #b91c1c;
 
+  --ui-color-success: #16a34a;
+  --ui-color-success-hover: #15803d;
+
+  --ui-color-warning: #f59e0b;
+  --ui-color-warning-hover: #d97706;
+
+  --ui-color-info: #2563eb;
+  --ui-color-info-hover: #1d4ed8;
+
   /* Отступы */
   --ui-space-1: 4px;
   --ui-space-2: 8px;

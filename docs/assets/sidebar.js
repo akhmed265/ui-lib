@@ -20,6 +20,11 @@
       { href: "card.html",     title: "Card" },
       { href: "tabs.html",     title: "Tabs" },
       { href: "accordion.html", title: "Accordion" },
+      { href: "badge.html", title: "Badge" },
+      { href: "breadcrumbs.html", title: "Breadcrumbs" },
+      { href: "progress.html", title: "Progress" },
+      { href: "avatar.html", title: "Avatar" },
+      { href: "spinner.html", title: "Spinner" },
     ];
   
     // ---------- Определяем контекст страницы ----------

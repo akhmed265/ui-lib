@@ -12,3 +12,4 @@
    import "../docs/components/toast/toast.js";
    import "../docs/components/tabs/tabs.js";
    import "../docs/components/accordion/accordion.js";
+   import "../docs/components/avatar/avatar.js";

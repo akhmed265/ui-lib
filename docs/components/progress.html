@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress — UI Lib</title>
+  <link rel="stylesheet" href="../../src/ui.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" data-docs-sidebar></aside>
+
+  <main class="docs-main">
+    <header class="docs-header">
+      <h1>Progress</h1>
+      <div class="docs-header__actions" data-docs-actions></div>
+    </header>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Базовый</h2>
+      <p class="docs-section__desc">
+        Значение задаётся через CSS-переменную <code>--ui-progress-value</code> в процентах.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 20px;">
+        <div class="ui-progress" style="--ui-progress-value: 25%;">
+          <div class="ui-progress__bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="ui-progress" style="--ui-progress-value: 60%;">
+          <div class="ui-progress__bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="ui-progress" style="--ui-progress-value: 100%;">
+          <div class="ui-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-progress" style="--ui-progress-value: 60%;"&gt;
+  &lt;div class="ui-progress__bar" role="progressbar"
+       aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">С label и значением</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; max-width: 480px;">
+        <div class="ui-progress" style="--ui-progress-value: 45%;">
+          <div class="ui-progress__label">
+            <span>Загрузка файла</span>
+            <span class="ui-progress__value">45%</span>
+          </div>
+          <div class="ui-progress__bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-progress" style="--ui-progress-value: 45%;"&gt;
+  &lt;div class="ui-progress__label"&gt;
+    &lt;span&gt;Загрузка файла&lt;/span&gt;
+    &lt;span class="ui-progress__value"&gt;45%&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-progress__bar" role="progressbar"
+       aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Цвета</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 16px;">
+        <div class="ui-progress ui-progress--primary" style="--ui-progress-value: 70%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+        <div class="ui-progress ui-progress--success" style="--ui-progress-value: 70%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+        <div class="ui-progress ui-progress--warning" style="--ui-progress-value: 70%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+        <div class="ui-progress ui-progress--danger" style="--ui-progress-value: 70%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Размеры</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 16px;">
+        <div class="ui-progress ui-progress--sm" style="--ui-progress-value: 50%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+        <div class="ui-progress" style="--ui-progress-value: 50%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+        <div class="ui-progress ui-progress--lg" style="--ui-progress-value: 50%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Striped и animated</h2>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 16px;">
+        <div class="ui-progress ui-progress--primary ui-progress--striped" style="--ui-progress-value: 65%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+        <div class="ui-progress ui-progress--success ui-progress--striped ui-progress--animated" style="--ui-progress-value: 65%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-progress ui-progress--success ui-progress--striped ui-progress--animated"
+     style="--ui-progress-value: 65%;"&gt;
+  &lt;div class="ui-progress__bar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Indeterminate</h2>
+      <p class="docs-section__desc">Когда точный прогресс неизвестен — бегущая полоса.</p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 16px;">
+        <div class="ui-progress ui-progress--primary ui-progress--indeterminate">
+          <div class="ui-progress__bar" role="progressbar"></div>
+        </div>
+        <div class="ui-progress ui-progress--danger ui-progress--indeterminate ui-progress--lg">
+          <div class="ui-progress__bar" role="progressbar"></div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-progress ui-progress--indeterminate"&gt;
+  &lt;div class="ui-progress__bar" role="progressbar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Loading (пульсация)</h2>
+      <p class="docs-section__desc">
+        Модификатор <code>--loading</code> — заливка мягко пульсирует яркостью.
+        Работает вместе с обычным прогрессом.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 20px;">
+        <div class="ui-progress ui-progress--primary ui-progress--loading" style="--ui-progress-value: 35%;">
+          <div class="ui-progress__label">
+            <span>Загрузка данных</span>
+            <span class="ui-progress__value">35%</span>
+          </div>
+          <div class="ui-progress__bar"></div>
+        </div>
+
+        <div class="ui-progress ui-progress--success ui-progress--loading" style="--ui-progress-value: 60%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+
+        <div class="ui-progress ui-progress--warning ui-progress--loading ui-progress--lg" style="--ui-progress-value: 80%;">
+          <div class="ui-progress__bar"></div>
+        </div>
+      </div>
+
+<pre class="docs-code"><code>&lt;div class="ui-progress ui-progress--primary ui-progress--loading"
+     style="--ui-progress-value: 35%;"&gt;
+  &lt;div class="ui-progress__bar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="docs-section">
+      <h2 class="docs-section__title">Живой пример</h2>
+      <p class="docs-section__desc">
+        Кнопка запускает загрузку. Во время процесса — пульсация. По завершении — пульсация выключается.
+      </p>
+      <div class="docs-demo" style="flex-direction: column; align-items: stretch; gap: 16px; max-width: 480px;">
+        <div class="ui-progress ui-progress--primary" id="live" style="--ui-progress-value: 0%;">
+          <div class="ui-progress__label">
+            <span>Загрузка</span>
+            <span class="ui-progress__value" id="liveValue">0%</span>
+          </div>
+          <div class="ui-progress__bar"></div>
+        </div>
+        <button class="ui-btn ui-btn--primary" id="liveStart">Запустить</button>
+      </div>
+
+<pre class="docs-code"><code>// Во время загрузки — пульсация
+progress.classList.add("ui-progress--loading");
+
+// По завершении — выключаем
+progress.classList.remove("ui-progress--loading");</code></pre>
+    </section>
+
+  </main>
+</div>
+
+<script src="../assets/sidebar.js" defer></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const progress = document.getElementById("live");
+    const value = document.getElementById("liveValue");
+    const btn = document.getElementById("liveStart");
+    if (!progress || !btn) return;
+
+    let timer = null;
+
+    btn.addEventListener("click", () => {
+      if (timer) return;
+
+      let v = 0;
+      progress.classList.add("ui-progress--loading");
+      progress.style.setProperty("--ui-progress-value", "0%");
+      value.textContent = "0%";
+      btn.disabled = true;
+      btn.textContent = "Загрузка...";
+
+      const tick = () => {
+        v += Math.random() * 6 + 3;
+        if (v >= 100) v = 100;
+
+        progress.style.setProperty("--ui-progress-value", v + "%");
+        value.textContent = Math.round(v) + "%";
+
+        if (v < 100) {
+          timer = setTimeout(tick, 180);
+        } else {
+          progress.classList.remove("ui-progress--loading");
+          btn.disabled = false;
+          btn.textContent = "Запустить снова";
+          timer = null;
+        }
+      };
+      tick();
+    });
+  });
+</script>
+</body>
+</html>

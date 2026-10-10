@@ -16,6 +16,12 @@
 
   --ui-focus-ring: 0 0 0 3px rgb(59 130 246 / 0.45);
   --ui-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
+
+  --ui-color-success: #22c55e;
+  --ui-color-success-hover: #16a34a;
+
+  --ui-color-warning: #fbbf24;
+  --ui-color-warning-hover: #f59e0b;
 }
 
 /* Авто-тема по системным настройкам (если пользователь не выбрал явно) */
@@ -37,5 +43,11 @@
 
     --ui-focus-ring: 0 0 0 3px rgb(59 130 246 / 0.45);
     --ui-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
+
+    --ui-color-success: #22c55e;
+    --ui-color-success-hover: #16a34a;
+  
+    --ui-color-warning: #fbbf24;
+    --ui-color-warning-hover: #f59e0b;
   }
 }

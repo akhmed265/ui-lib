@@ -16,3 +16,8 @@
 @import "../docs/components/card/card.css";
 @import "../docs/components/tabs/tabs.css";
 @import "../docs/components/accordion/accordion.css";
+@import "../docs/components/badge/badge.css";
+@import "../docs/components/breadcrumbs/breadcrumbs.css";
+@import "../docs/components/progress/progress.css";
+@import "../docs/components/avatar/avatar.css";
+@import "../docs/components/spinner/spinner.css";

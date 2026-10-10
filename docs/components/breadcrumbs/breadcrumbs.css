@@ -1,0 +1,146 @@
+/* ============================================================
+   Breadcrumbs
+   Базовый класс: .ui-breadcrumbs
+   Части: __list, __item, __link, __current, __icon, __separator
+   Модификаторы: --arrow, --sm, --lg, --compact, --pill
+   Переменная: --ui-breadcrumbs-separator
+   ============================================================ */
+
+   .ui-breadcrumbs {
+    --ui-breadcrumbs-separator: "/";
+  
+    display: block;
+    font-family: var(--ui-font);
+    font-size: var(--ui-text-md);
+    line-height: 1.4;
+  }
+  
+  .ui-breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ui-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .ui-breadcrumbs__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ui-space-1);
+    color: var(--ui-color-text-muted);
+  }
+  
+  /* Разделитель между всеми, кроме последнего */
+  .ui-breadcrumbs__item:not(:last-child)::after {
+    content: var(--ui-breadcrumbs-separator);
+    display: inline-block;
+    margin: 0 var(--ui-space-2);
+    color: var(--ui-color-text-muted);
+    user-select: none;
+  }
+  
+  /* ---------- Ссылка ---------- */
+  
+  .ui-breadcrumbs__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ui-space-1);
+    color: var(--ui-color-text-muted);
+    text-decoration: none;
+    border-radius: var(--ui-radius-sm);
+    transition:
+      color var(--ui-transition),
+      background-color var(--ui-transition);
+  }
+  
+  .ui-breadcrumbs__link:hover {
+    color: var(--ui-color-primary);
+    text-decoration: underline;
+  }
+  
+  .ui-breadcrumbs__link:focus-visible {
+    outline: none;
+    box-shadow: var(--ui-focus-ring);
+  }
+  
+  /* ---------- Текущий элемент ---------- */
+  
+  .ui-breadcrumbs__current {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ui-space-1);
+    color: var(--ui-color-text);
+    font-weight: 500;
+  }
+  
+  /* ---------- Иконка ---------- */
+  
+  .ui-breadcrumbs__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+  
+  /* ============================================================
+     Модификаторы
+     ============================================================ */
+  
+  /* Стрелка вместо слэша */
+  .ui-breadcrumbs--arrow {
+    --ui-breadcrumbs-separator: "›";
+  }
+  
+  /* Размеры */
+  .ui-breadcrumbs--sm {
+    font-size: var(--ui-text-sm);
+  }
+  
+  .ui-breadcrumbs--lg {
+    font-size: var(--ui-text-lg);
+  }
+  
+  /* Compact — без боковых отступов, только разделитель */
+  .ui-breadcrumbs--compact .ui-breadcrumbs__item:not(:last-child)::after {
+    margin: 0 var(--ui-space-1);
+  }
+  
+  /* ============================================================
+     Pills — элементы в виде «пилюль»
+     ============================================================ */
+  
+  .ui-breadcrumbs--pill .ui-breadcrumbs__list {
+    gap: var(--ui-space-2);
+  }
+  
+  .ui-breadcrumbs--pill .ui-breadcrumbs__item:not(:last-child)::after {
+    content: none;
+  }
+  
+  .ui-breadcrumbs--pill .ui-breadcrumbs__link,
+  .ui-breadcrumbs--pill .ui-breadcrumbs__current {
+    padding: var(--ui-space-1) var(--ui-space-3);
+    border-radius: var(--ui-radius-full);
+    background: var(--ui-color-bg-subtle);
+  }
+  
+  .ui-breadcrumbs--pill .ui-breadcrumbs__link:hover {
+    background: var(--ui-color-bg-muted);
+    color: var(--ui-color-primary);
+    text-decoration: none;
+  }
+  
+  .ui-breadcrumbs--pill .ui-breadcrumbs__current {
+    background: var(--ui-color-primary);
+    color: #fff;
+  }
+  
+  /* ---------- Тёмная тема — разделитель чуть приглушён ---------- */
+  
+  [data-theme="dark"] .ui-breadcrumbs__item:not(:last-child)::after {
+    color: var(--ui-color-text-muted);
+  }
